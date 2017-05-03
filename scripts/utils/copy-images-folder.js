@@ -12,7 +12,9 @@ const paths = require( '../../config/paths' );
  * Function
  */
 module.exports = () => {
-	fs.copySync( paths.appImages, `${paths.appBuild}/images`, {
-		dereference: true,
-	});
+	if ( fs.existsSync( paths.appImages ) ) {
+		fs.copySync( paths.appImages, `${paths.appBuild}/images`, {
+			dereference: true,
+		});
+	}
 };
