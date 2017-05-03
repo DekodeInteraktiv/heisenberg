@@ -4,14 +4,14 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dekode/heisenberg.git"
+    "url": "git+https://github.com/DekodeInteraktiv/heisenberg.git"
   },
   "license": "GPL-3.0",
   "engines": {
     "node": ">=6"
   },
   "bugs": {
-    "url": "https://github.com/dekode/heisenberg/issues"
+    "url": "https://github.com/DekodeInteraktiv/heisenberg/issues"
   },
   "bin": {
     "heisenberg-scripts": "./bin/heisenberg-scripts.js"

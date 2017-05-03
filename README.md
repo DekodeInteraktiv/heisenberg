@@ -2,7 +2,7 @@
 Heisenberg is a modern build setup, inspired by [Create react app](https://github.com/facebookincubator/create-react-app/).
 
 Heisenberg works on macOS, Windows, and Linux.<br />
-If something doesn’t work please [file an issue](https://github.com/dekode/heisenberg/issues/new).
+If something doesn’t work please [file an issue](https://github.com/DekodeInteraktiv/heisenberg/issues/new).
 
 ## Table of Contents
 - [Available Scripts](#available-scripts)
