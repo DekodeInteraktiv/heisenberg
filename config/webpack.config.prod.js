@@ -21,6 +21,8 @@ const paths = require( './paths' );
  * The production configuration is different and lives in a separate file.
  */
 module.exports = {
+	// Don't attempt to continue if there are any errors.
+	bail: true,
 	// These are the "entry points" to our application.
 	// This means they will be the "root" imports that are included in JS bundle.
 	// The first two entry points enable "hot" CSS and auto-refreshes for JS.
