@@ -14,6 +14,16 @@ const ManifestPlugin = require( 'webpack-manifest-plugin' );
 const paths = require( './paths' );
 
 /**
+ * Entries
+ */
+const appPackage = require( paths.appPackageJson );
+const entry = appPackage.entry;
+
+if ( appPackage.editor ) {
+	entry.editor = appPackage.editor
+}
+
+/**
  * Config
  *
  * This is the development configuration.
@@ -24,7 +34,7 @@ module.exports = {
 	// Don't attempt to continue if there are any errors.
 	bail: true,
 	// These are the "entry points" to our application.
-	entry: require( paths.appPackageJson ).entry,
+	entry,
 	output: {
 		// The build folder.
 		path: paths.appBuild,
