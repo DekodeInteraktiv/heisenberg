@@ -24,8 +24,6 @@ module.exports = {
 	// Don't attempt to continue if there are any errors.
 	bail: true,
 	// These are the "entry points" to our application.
-	// This means they will be the "root" imports that are included in JS bundle.
-	// The first two entry points enable "hot" CSS and auto-refreshes for JS.
 	entry: require( paths.appPackageJson ).entry,
 	output: {
 		// The build folder.
