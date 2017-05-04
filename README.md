@@ -9,6 +9,7 @@ If something doesn’t work please [file an issue](https://github.com/DekodeInte
   - [yarn start](#yarn-start)
   - [yarn test](#yarn-test)
   - [yarn build](#yarn-build)
+- [Editor style](#editor-style)
 - [Using Global Variables](#using-global-variables)
 - [Adding Flow](#adding-flow)
 - [Running Tests](#running-tests)
@@ -38,6 +39,15 @@ Builds the app for production to the `dist` folder.
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+
+## Editor style
+In WordPress you can create a separate TinyMCE editor style, but WordPress does
+not need this front-end, so you don't want to add this to the entry key. To
+create a editor file on `build` add this to your `package.json`:
+
+```json
+"editor": "./src/editor.scss",
+```
 
 ## Using Global Variables
 When you include a script in the HTML file that defines global variables and
