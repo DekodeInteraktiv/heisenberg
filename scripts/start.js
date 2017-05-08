@@ -16,6 +16,8 @@ process.on( 'unhandledRejection', err => {
 /**
  * External dependencies
  */
+const _ = require( 'lodash' );
+const validator = require( 'validator' );
 const WebpackDevServer = require( 'webpack-dev-server' );
 
 /**
@@ -33,16 +35,36 @@ const createWebpackCompiler = require( './utils/create-webpack-compiler' );
 const devServerConfig = require( '../config/webpackDevServer.config' );
 
 const isInteractive = process.stdout.isTTY;
+const proxy = _.trim( require( paths.appPackageJson ).proxy );
 
-// Create a webpack compiler that is configured with custom messages.
+/**
+ * Check if proxy url is valid
+ */
+if ( ! proxy ) {
+	console.log();
+	console.log( chalk.red( '`proxy` field is not defined in your `package.json`' ) );
+	console.log();
+	console.log( 'See https://github.com/DekodeInteraktiv/heisenberg#proxy' );
+	console.log();
+	process.exit( 1 );
+}
+
+if ( validator.isURL( proxy, { require_protocol: true } ) ) {
+	console.log();
+	console.log( chalk.red( 'The proxy is not a valid url' ) );
+	console.log();
+	process.exit( 1 );
+}
+
+/**
+ * Create a webpack compiler that is configured with custom messages.
+ */
 const compiler = createWebpackCompiler(
 	config,
 	function onReady( showInstructions ) {
 		if ( ! showInstructions ) {
 			return;
 		}
-
-		const proxy = require( paths.appPackageJson ).proxy;
 
 		console.log();
 		console.log( 'The site is running at:' );
