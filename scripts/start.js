@@ -42,9 +42,7 @@ const proxy = _.trim( require( paths.appPackageJson ).proxy );
  */
 if ( ! proxy ) {
 	console.log();
-	console.log( chalk.red( '`proxy` field is not defined in your `package.json`' ) );
-	console.log();
-	console.log( 'See https://github.com/DekodeInteraktiv/heisenberg#proxy' );
+	console.log( chalk.red( 'The `proxy` field is not defined in your `package.json`' ) );
 	console.log();
 	process.exit( 1 );
 }
