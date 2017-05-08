@@ -47,7 +47,7 @@ if ( ! proxy ) {
 	process.exit( 1 );
 }
 
-if ( validator.isURL( proxy, { require_protocol: true } ) ) {
+if ( ! validator.isURL( proxy, { require_protocol: true } ) ) {
 	console.log();
 	console.log( chalk.red( 'The proxy is not a valid url' ) );
 	console.log();
