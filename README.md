@@ -9,6 +9,7 @@ If something doesn’t work please [file an issue](https://github.com/DekodeInte
   - [yarn start](#yarn-start)
   - [yarn test](#yarn-test)
   - [yarn build](#yarn-build)
+- [Proxy](#proxy)
 - [Editor style](#editor-style)
 - [Using Global Variables](#using-global-variables)
 - [Adding Flow](#adding-flow)
@@ -31,6 +32,9 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
 
+To run the development task it is required to define the `[proxy](#proxy)`
+field in `package.json`.
+
 ### `yarn test`
 Launches the test runner in the interactive watch mode.
 
@@ -39,6 +43,16 @@ Builds the app for production to the `dist` folder.
 
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
+
+## Proxy
+The development mode is proxying an existing vhost. It will wrap your vhost
+with a proxy URL to view your site.
+
+To define the proxy add a `proxy` field to your `package.json`, for example:
+
+```json
+"proxy": "http://local-url.dev",
+```
 
 ## Editor style
 In WordPress you can create a separate TinyMCE editor style, but WordPress does
