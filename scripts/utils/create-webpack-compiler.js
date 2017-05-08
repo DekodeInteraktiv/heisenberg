@@ -79,7 +79,6 @@ module.exports = function createWebpackCompiler( config, onReadyCallback ) {
 						},
 					],
 				},
-				open: false,
 				codeSync: false,
 				timestamps: false,
 				logLevel: 'silent',
