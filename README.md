@@ -32,7 +32,7 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.
 
-To run the development task it is required to define the `[proxy](#proxy)`
+To run the development task it is required to define the [`proxy`](#proxy)
 field in `package.json`.
 
 ### `yarn test`
