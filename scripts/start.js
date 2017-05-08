@@ -19,6 +19,11 @@ process.on( 'unhandledRejection', err => {
 const WebpackDevServer = require( 'webpack-dev-server' );
 
 /**
+ * Internal dependencies
+ */
+const paths = require( '../config/paths' );
+
+/**
  * Variables
  */
 const chalk = require( 'chalk' );
@@ -37,10 +42,12 @@ const compiler = createWebpackCompiler(
 			return;
 		}
 
+		const proxy = require( paths.appPackageJson ).proxy;
+
 		console.log();
 		console.log( 'The site is running at:' );
 		console.log();
-		console.log( `  ${chalk.cyan( 'http://localhost:3000/' )}` );
+		console.log( `  ${chalk.cyan( 'http://localhost:3000/' )}  ${chalk.dim( `(${proxy})` )}` );
 		console.log();
 		console.log( 'Note that the development build is not optimized.' );
 		console.log(
