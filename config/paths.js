@@ -11,6 +11,7 @@ function resolveApp( relativePath ) {
 module.exports = {
 	resolveApp,
 	appBuild: resolveApp( 'dist' ),
+	appManifest: resolveApp( 'dist/assets.json' ),
 	appNodeModules: resolveApp( 'node_modules' ),
 	appPackageJson: resolveApp( 'package.json' ),
 	appPublic: resolveApp( 'public' ),
