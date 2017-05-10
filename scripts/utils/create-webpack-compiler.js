@@ -6,6 +6,7 @@ const clearConsole = require( 'react-dev-utils/clearConsole' );
 const formatWebpackMessages = require( 'react-dev-utils/formatWebpackMessages' );
 const bs = require( 'browser-sync' );
 const paths = require( '../../config/paths' );
+const removeIfManifestFile = require( './manifest-remove-file' );
 
 const isInteractive = process.stdout.isTTY;
 let handleCompile;
@@ -73,12 +74,21 @@ module.exports = function createWebpackCompiler( config, onReadyCallback ) {
 				port: 3000,
 				proxy: {
 					target: require( paths.appPackageJson ).proxy,
-					proxyReq: [
-						function(proxyReq) {
-							proxyReq.setHeader( 'X-Heisenberg-Scripts', require( '../../package.json' ).version );
-						},
-					],
 				},
+				rewriteRules: [{
+					// Remove all manifest js files
+					match: /<script.*src=(?:['"])(.*)(?:['"]).*><\/script>/gi,
+					fn: removeIfManifestFile,
+				}, {
+					// Remove all manifest css files
+					match: /<link.*href=(?:['"])(.*)(?:['"]).*>/gi,
+					replace: removeIfManifestFile,
+				}, {
+					// Append bundle
+					match: /<\/body>/i,
+					replace: ( req, res, match ) =>
+						`<script type="text/javascript" src="http://localhost:3100/bundle.js"></script>\n${match}`,
+				}],
 				codeSync: false,
 				timestamps: false,
 				logLevel: 'silent',
