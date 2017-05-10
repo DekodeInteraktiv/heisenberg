@@ -73,11 +73,6 @@ module.exports = function createWebpackCompiler( config, onReadyCallback ) {
 				port: 3000,
 				proxy: {
 					target: require( paths.appPackageJson ).proxy,
-					proxyReq: [
-						function(proxyReq) {
-							proxyReq.setHeader( 'X-Heisenberg-Scripts', require( '../../package.json' ).version );
-						},
-					],
 				},
 				codeSync: false,
 				timestamps: false,
