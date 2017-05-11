@@ -8,7 +8,7 @@ var SockJS = require( 'sockjs-client' );
 /**
  * Connect to WebpackDevServer via a socket.
  */
-var connection = new SockJS( 'http://localhost:3100/sockjs-node' );
+var connection = new SockJS( 'http://localhost:' + window.heisenbergDevPort + '/sockjs-node' );
 
 // Unlike WebpackDevServer client, we won't try to reconnect
 // to avoid spamming the console. Disconnect usually happens
