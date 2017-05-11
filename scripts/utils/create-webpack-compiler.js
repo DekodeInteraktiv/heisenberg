@@ -1,13 +1,22 @@
 'use strict';
 
+/**
+ * External dependencies
+ */
+const bs = require( 'browser-sync' );
 const chalk = require( 'chalk' );
-const webpack = require( 'webpack' );
 const clearConsole = require( 'react-dev-utils/clearConsole' );
 const formatWebpackMessages = require( 'react-dev-utils/formatWebpackMessages' );
-const bs = require( 'browser-sync' );
-const paths = require( '../../config/paths' );
-const removeIfManifestFile = require( './manifest-remove-file' );
+const webpack = require( 'webpack' );
 
+/**
+ * Internal dependencies
+ */
+const browserSyncConfig = require( '../../config/browsersync.config' );
+
+/**
+ * Variables
+ */
 const isInteractive = process.stdout.isTTY;
 let handleCompile;
 
@@ -69,30 +78,7 @@ module.exports = function createWebpackCompiler( config, onReadyCallback ) {
 		isFirstCompile = false;
 
 		if ( ! isBrowserSyncRunning ) {
-			browserSync.init({
-				host: 'localhost',
-				port: 3000,
-				proxy: {
-					target: require( paths.appPackageJson ).proxy,
-				},
-				rewriteRules: [{
-					// Remove all manifest js files
-					match: /<script.*src=(?:['"])(.*)(?:['"]).*><\/script>/gi,
-					fn: removeIfManifestFile,
-				}, {
-					// Remove all manifest css files
-					match: /<link.*href=(?:['"])(.*)(?:['"]).*>/gi,
-					replace: removeIfManifestFile,
-				}, {
-					// Append bundle
-					match: /<\/body>/i,
-					replace: ( req, res, match ) =>
-						`<script type="text/javascript" src="http://localhost:3100/bundle.js"></script>\n${match}`,
-				}],
-				codeSync: false,
-				timestamps: false,
-				logLevel: 'silent',
-			});
+			browserSync.init( browserSyncConfig );
 			isBrowserSyncRunning = true;
 		}
 
