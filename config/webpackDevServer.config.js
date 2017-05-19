@@ -6,7 +6,7 @@ const paths = require( './paths' );
 /**
  * Config
  */
-module.exports = ( host ) => {
+module.exports = ( host, allowedHost ) => {
 	return {
 		compress: true,
 		clientLogLevel: 'none',
@@ -19,6 +19,7 @@ module.exports = ( host ) => {
 			ignored: /node_modules/,
 		},
 		host: host,
+		public: allowedHost,
 		overlay: false,
 		headers: {
 			'Access-Control-Allow-Origin': '*',
