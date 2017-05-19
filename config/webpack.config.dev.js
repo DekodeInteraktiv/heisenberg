@@ -44,7 +44,7 @@ Object.keys( appEntry ).forEach( key => {
  * It is focused on developer experience and fast rebuilds.
  * The production configuration is different and lives in a separate file.
  */
-module.exports {
+module.exports = {
 	devtool: 'cheap-module-source-map',
 	// These are the "entry points" to our application.
 	// This means they will be the "root" imports that are included in JS bundle.
