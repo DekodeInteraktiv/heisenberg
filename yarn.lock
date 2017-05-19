@@ -1730,13 +1730,6 @@ detect-indent@^4.0.0:
   dependencies:
     repeating "^2.0.0"
 
-detect-port@1.1.2:
-  version "1.1.2"
-  resolved "https://registry.yarnpkg.com/detect-port/-/detect-port-1.1.2.tgz#f7706366d37af0e3c3fe9c6b7b4d55b4a32d223b"
-  dependencies:
-    address "^1.0.1"
-    debug "^2.6.0"
-
 dev-ip@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/dev-ip/-/dev-ip-1.0.1.tgz#a76a3ed1855be7a012bb8ac16cb80f3c00dc28f0"

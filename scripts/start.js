@@ -24,7 +24,7 @@ const {
 const chalk = require( 'chalk' );
 const clearConsole = require( 'react-dev-utils/clearConsole' );
 const createWebpackCompiler = require( './utils/create-webpack-compiler' );
-const detect = require( 'detect-port' );
+const detect = require( '@timer/detect-port' );
 const getProcessForPort = require( 'react-dev-utils/getProcessForPort' );
 const validator = require( 'validator' );
 const WebpackDevServer = require( 'webpack-dev-server' );
@@ -62,7 +62,7 @@ if ( ! validator.isURL( proxy, { require_protocol: true } ) ) {
 }
 
 function run( port ) {
-	detect( 3100 ).then( devPort => {
+	detect( 3100, HOST ).then( devPort => {
 		const urls = prepareUrls( 'http', HOST, devPort );
 		const urlsBS = prepareUrls( 'http', HOST, port );
 
