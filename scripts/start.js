@@ -65,15 +65,14 @@ function run( port ) {
 	detect( 3100 ).then( devPort => {
 		const urls = prepareUrls( 'http', HOST, devPort );
 		const urlsBS = prepareUrls( 'http', HOST, port );
-		const publicPath = `http://${urls.lanUrlForConfig}:${devPort}/`;
 
 		/**
 		 * Create a webpack compiler that is configured with custom messages.
 		 */
 		const compiler = createWebpackCompiler(
-			publicPath,
 			port,
-			config( publicPath ),
+			devPort,
+			config,
 			function onReady( showInstructions ) {
 				if ( ! showInstructions ) {
 					return;

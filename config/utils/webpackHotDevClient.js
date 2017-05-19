@@ -1,5 +1,8 @@
 'use strict';
 
+// Define public url
+__webpack_public_path__ = window.heisenbergDevUrl;
+
 /**
  * External dependencies
  */

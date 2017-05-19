@@ -20,7 +20,7 @@ const browserSyncConfig = require( '../../config/browsersync.config' );
 const isInteractive = process.stdout.isTTY;
 let handleCompile;
 
-module.exports = function createWebpackCompiler( publicPath, port, config, onReadyCallback ) {
+module.exports = function createWebpackCompiler( port, devPort, config, onReadyCallback ) {
 	// "Compiler" is a low-level interface to Webpack.
 	// It lets us listen to some events and provide our own custom messages.
 	let compiler;
@@ -78,7 +78,7 @@ module.exports = function createWebpackCompiler( publicPath, port, config, onRea
 		isFirstCompile = false;
 
 		if ( ! isBrowserSyncRunning ) {
-			browserSync.init( browserSyncConfig( publicPath, port ) );
+			browserSync.init( browserSyncConfig( port, devPort ) );
 			isBrowserSyncRunning = true;
 		}
 
