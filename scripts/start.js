@@ -21,6 +21,7 @@ const { choosePort } = require( 'react-dev-utils/WebpackDevServerUtils' );
 const chalk = require( 'chalk' );
 const clearConsole = require( 'react-dev-utils/clearConsole' );
 const createWebpackCompiler = require( './utils/create-webpack-compiler' );
+const detect = require( 'detect-port' );
 const getProcessForPort = require( 'react-dev-utils/getProcessForPort' );
 const validator = require( 'validator' );
 const WebpackDevServer = require( 'webpack-dev-server' );
@@ -58,12 +59,7 @@ if ( ! validator.isURL( proxy, { require_protocol: true } ) ) {
 }
 
 function run( port ) {
-	choosePort( HOST, 3100 ).then( devPort => {
-		if ( devPort == null ) {
-			// We have not found a port.
-			return;
-		}
-
+	detect( 3100 ).then( devPort => {
 		/**
 		 * Create a webpack compiler that is configured with custom messages.
 		 */
