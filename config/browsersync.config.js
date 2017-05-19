@@ -25,9 +25,14 @@ module.exports = ( port, devPort ) => {
 		}, {
 			// Append bundle
 			match: /<\/body>/i,
-			replace: ( req, res, match ) =>
-				`<script type="text/javascript">var heisenbergDevPort = ${devPort};</script>\n` +
-				`<script type="text/javascript" src="http://localhost:${devPort}/bundle.js"></script>\n${match}`,
+			replace: ( req, res, match ) => {
+				const publicPath = `http://${req.headers.host.split( ':' )[0]}:${devPort}/`;
+
+				return '<script type="text/javascript">\n' +
+						`var heisenbergDevUrl = '${publicPath}';\n` +
+					'</script>\n' +
+					`<script type="text/javascript" src="${publicPath}bundle.js"></script>\n${match}`;
+			}
 		}],
 		codeSync: false,
 		timestamps: false,
