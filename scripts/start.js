@@ -17,12 +17,11 @@ process.on( 'unhandledRejection', err => {
  * External dependencies
  */
 const _ = require( 'lodash' );
+const { choosePort } = require( 'react-dev-utils/WebpackDevServerUtils' );
 const chalk = require( 'chalk' );
 const clearConsole = require( 'react-dev-utils/clearConsole' );
 const createWebpackCompiler = require( './utils/create-webpack-compiler' );
-const detect = require( 'detect-port' );
 const getProcessForPort = require( 'react-dev-utils/getProcessForPort' );
-const prompt = require( 'react-dev-utils/prompt' );
 const validator = require( 'validator' );
 const WebpackDevServer = require( 'webpack-dev-server' );
 
@@ -39,6 +38,7 @@ const paths = require( '../config/paths' );
 const isInteractive = process.stdout.isTTY;
 const proxy = _.trim( require( paths.appPackageJson ).proxy );
 const DEFAULT_PORT = parseInt(process.env.PORT, 10) || 3000;
+const HOST = process.env.HOST || 'localhost';
 
 /**
  * Check if proxy url is valid
@@ -58,10 +58,12 @@ if ( ! validator.isURL( proxy, { require_protocol: true } ) ) {
 }
 
 function run( port ) {
-	// Variables
-	const host = process.env.HOST || 'localhost';
+	choosePort( HOST, 3100 ).then( devPort => {
+		if ( devPort == null ) {
+			// We have not found a port.
+			return;
+		}
 
-	detect( 3100 ).then( devPort => {
 		/**
 		 * Create a webpack compiler that is configured with custom messages.
 		 */
@@ -77,7 +79,7 @@ function run( port ) {
 				console.log();
 				console.log( 'The site is running at:' );
 				console.log();
-				console.log( `  ${chalk.cyan( `http://${host}:${port}/` )}  ${chalk.dim( `(${proxy})` )}` );
+				console.log( `  ${chalk.cyan( `http://${HOST}:${port}/` )}  ${chalk.dim( `(${proxy})` )}` );
 				console.log();
 				console.log( 'Note that the development build is not optimized.' );
 				console.log(
@@ -91,7 +93,7 @@ function run( port ) {
 		const devServer = new WebpackDevServer( compiler, devServerConfig );
 
 		// Launch WebpackDevServer.
-		devServer.listen( devPort, host, err => {
+		devServer.listen( devPort, HOST, err => {
 			if ( err ) {
 				return console.log( err );
 			}
@@ -108,28 +110,11 @@ function run( port ) {
 
 // We attempt to use the default port but if it is busy, we offer the user to
 // run on a different port. `detect()` Promise resolves to the next free port.
-detect( DEFAULT_PORT ).then( port => {
-	if ( port === DEFAULT_PORT ) {
-		run( port );
+choosePort( HOST, DEFAULT_PORT ).then( port => {
+	if ( port == null ) {
+		// We have not found a port.
 		return;
 	}
 
-	if ( isInteractive ) {
-		clearConsole();
-		const existingProcess = getProcessForPort( DEFAULT_PORT );
-		const question = chalk.yellow(
-			`Something is already running on port ${DEFAULT_PORT}.` +
-			`${existingProcess ? ` Probably:\n  ${existingProcess}` : ''}`
-		) + '\n\nWould you like to run the app on another port instead?';
-
-		prompt( question, true ).then( shouldChangePort => {
-			if ( shouldChangePort ) {
-				run( port );
-			}
-		});
-	} else {
-		console.log(
-			chalk.red(`Something is already running on port ${DEFAULT_PORT}.`)
-		);
-	}
+	run( port );
 });
