@@ -7,7 +7,7 @@ const removeIfManifestFile = require( './utils/manifest-remove-file' );
 /**
  * Config
  */
-module.exports = ( port, devPort ) => {
+module.exports = ( publicPath, port, devPort ) => {
 	return {
 		host: 'localhost',
 		port,
@@ -26,8 +26,10 @@ module.exports = ( port, devPort ) => {
 			// Append bundle
 			match: /<\/body>/i,
 			replace: ( req, res, match ) =>
-				`<script type="text/javascript">var heisenbergDevPort = ${devPort};</script>\n` +
-				`<script type="text/javascript" src="http://localhost:${devPort}/bundle.js"></script>\n${match}`,
+				'<script type="text/javascript">\n' +
+					`var heisenbergDevUrl = '${publicPath}';\n` +
+				'</script>\n' +
+				`<script type="text/javascript" src="${publicPath}bundle.js"></script>\n${match}`,
 		}],
 		codeSync: false,
 		timestamps: false,

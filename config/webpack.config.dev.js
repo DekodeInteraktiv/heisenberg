@@ -44,7 +44,7 @@ Object.keys( appEntry ).forEach( key => {
  * It is focused on developer experience and fast rebuilds.
  * The production configuration is different and lives in a separate file.
  */
-module.exports = ( port ) => {
+module.exports = ( publicPath ) => {
 	return {
 		devtool: 'cheap-module-source-map',
 		// These are the "entry points" to our application.
@@ -61,7 +61,7 @@ module.exports = ( port ) => {
 			// containing code from all our entry points, and the Webpack runtime.
 			filename: 'bundle.js',
 			// This is the URL that app is served from.
-			publicPath: `http://localhost:${port}/`,
+			publicPath,
 		},
 		module: {
 			rules: [
