@@ -62,8 +62,8 @@ module.exports = function createWebpackCompiler( port, devPort, config, onReadyC
 		// We have switched off the default Webpack output in WebpackDevServer
 		// options so we are going to "massage" the warnings and errors and present
 		// them in a readable focused way.
-		const messages = formatWebpackMessages( stats.toJson({}, true ) );
-		const isSuccessful = ! messages.errors.length && !messages.warnings.length;
+		const messages = formatWebpackMessages( stats.toJson( {}, true ) );
+		const isSuccessful = ! messages.errors.length && ! messages.warnings.length;
 		const showInstructions = isSuccessful && ( isInteractive || isFirstCompile );
 
 		if ( isSuccessful ) {
@@ -86,12 +86,7 @@ module.exports = function createWebpackCompiler( port, devPort, config, onReadyC
 		if ( messages.errors.length ) {
 			browserSync.notify( 'Failed to compile.' );
 			console.log( chalk.red( 'Failed to compile.' ) );
-			console.log();
-			messages.errors.forEach( message => {
-				console.log( message );
-				console.log();
-			});
-
+			console.log( messages.errors.join( '\n\n' ) );
 			return;
 		}
 
@@ -99,11 +94,7 @@ module.exports = function createWebpackCompiler( port, devPort, config, onReadyC
 		if ( messages.warnings.length ) {
 			browserSync.notify( 'Compiled with warnings.' );
 			console.log( chalk.yellow( 'Compiled with warnings.' ) );
-			console.log();
-			messages.warnings.forEach( message => {
-				console.log( message );
-				console.log();
-			});
+			console.log( messages.warnings.join( '\n\n' ) );
 		}
 	});
 
