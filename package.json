@@ -49,7 +49,7 @@
     "lodash": "4.17.4",
     "node-sass": "4.5.3",
     "postcss-loader": "2.0.5",
-    "react-dev-utils": "1.0.0",
+    "react-dev-utils": "1.0.1",
     "recursive-readdir": "2.2.1",
     "sass-loader": "6.0.5",
     "sockjs-client": "1.1.4",
