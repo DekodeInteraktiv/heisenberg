@@ -93,7 +93,7 @@ function run( port ) {
 					console.log(`  ${urlsBS.localUrlForTerminal}`);
 				}
 				console.log();
-				console.log( chalk.dim( `  ${chalk.bold('Proxy:')} ${proxy}` ) );
+				console.log( chalk.dim( `  ${chalk.bold('Proxying:')} ${proxy}` ) );
 				console.log();
 				console.log( 'Note that the development build is not optimized.' );
 				console.log(
