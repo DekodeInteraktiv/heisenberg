@@ -14,6 +14,12 @@ const ManifestPlugin = require( 'webpack-manifest-plugin' );
 const paths = require( './paths' );
 
 /**
+ * Variables
+ */
+const argv = process.argv.slice( 2 );
+const cacheBusting = ! argv.indexOf( '--no-filename-hashes' ) < 0;
+
+/**
  * Entries
  */
 const appPackage = require( paths.appPackageJson );
@@ -41,8 +47,8 @@ module.exports = {
 		// Generated JS file names (with nested folders).
 		// There will be one main bundle, and one file per asynchronous chunk.
 		// We don't currently advertise code splitting but Webpack supports it.
-		filename: 'js/[name].[chunkhash:8].js',
-		chunkFilename: 'js/[name].[chunkhash:8].chunk.js',
+		filename: cacheBusting ? 'js/[name].[chunkhash:8].js' : 'js/[name].js',
+		chunkFilename: cacheBusting ? 'js/[name].[chunkhash:8].chunk.js' : 'js/[name].chunk.js',
 	},
 	module: {
 		rules: [
@@ -128,7 +134,7 @@ module.exports = {
 		// Commons
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'commons',
-			filename: 'js/commons.[chunkhash:8].js',
+			filename: cacheBusting ? 'js/commons.[chunkhash:8].js' : 'js/commons.js',
 		}),
 		// Makes some environment variables available to the JS code, for example:
 		// if (process.env.NODE_ENV === 'development') { ... }.
@@ -144,7 +150,7 @@ module.exports = {
 		}),
 		// Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
 		new ExtractTextPlugin({
-			filename: 'css/[name].[contenthash:8].css',
+			filename: cacheBusting ? 'css/[name].[contenthash:8].css' : 'css/[name].css',
 			allChunks: true,
 		}),
 		// Generate a manifest file which contains a mapping of all asset filenames
