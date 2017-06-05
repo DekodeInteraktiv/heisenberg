@@ -4,9 +4,10 @@
  * External dependencies
  */
 const autoprefixer = require( 'autoprefixer' );
-const webpack = require( 'webpack' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const ManifestPlugin = require( 'webpack-manifest-plugin' );
+const StyleLintPlugin = require( 'stylelint-webpack-plugin' );
+const webpack = require( 'webpack' );
 
 /**
  * Internal dependencies
@@ -131,6 +132,12 @@ module.exports = {
 		],
 	},
 	plugins: [
+		// Lint SCSS files
+		new StyleLintPlugin({
+			configFile: require( './stylelint.config' ),
+			syntax: 'scss',
+			failOnError: true,
+		}),
 		// Commons
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'commons',
