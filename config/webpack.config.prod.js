@@ -6,6 +6,7 @@
 const autoprefixer = require( 'autoprefixer' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const ManifestPlugin = require( 'webpack-manifest-plugin' );
+const path = require( 'path' );
 const StyleLintPlugin = require( 'stylelint-webpack-plugin' );
 const webpack = require( 'webpack' );
 
@@ -134,9 +135,8 @@ module.exports = {
 	plugins: [
 		// Lint SCSS files
 		new StyleLintPlugin({
-			configFile: require( './stylelint.config' ),
+			configFile: path.resolve( __dirname, './stylelint.config.js' ),
 			syntax: 'scss',
-			failOnError: true,
 		}),
 		// Commons
 		new webpack.optimize.CommonsChunkPlugin({

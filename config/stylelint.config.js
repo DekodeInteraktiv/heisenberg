@@ -31,7 +31,6 @@ module.exports = {
 		'property-case': 'lower',
 
 		'declaration-block-no-duplicate-properties': true,
-		'declaration-block-no-ignored-properties': true,
 		'declaration-block-trailing-semicolon': 'always',
 		'declaration-block-single-line-max-declarations': 0,
 		'declaration-block-semicolon-space-before': 'never',
