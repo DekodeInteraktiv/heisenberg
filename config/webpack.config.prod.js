@@ -5,6 +5,7 @@
  */
 const autoprefixer = require( 'autoprefixer' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
+const fs = require( 'fs' );
 const ManifestPlugin = require( 'webpack-manifest-plugin' );
 const path = require( 'path' );
 const StyleLintPlugin = require( 'stylelint-webpack-plugin' );
@@ -65,7 +66,9 @@ module.exports = {
 					{
 						// Point ESLint to our predefined config.
 						options: {
-							baseConfig: require( './eslint.config' ),
+							baseConfig: fs.existsSync( paths.appEslintConfig )
+								? require( paths.appEslintConfig )
+								: require( './eslint.config' ),
 							useEslintrc: false,
 						},
 						loader: 'eslint-loader',
@@ -135,7 +138,9 @@ module.exports = {
 	plugins: [
 		// Lint SCSS files
 		new StyleLintPlugin({
-			configFile: path.resolve( __dirname, './stylelint.config.js' ),
+			configFile: fs.existsSync( paths.appStylelintConfig )
+				? paths.appStylelintConfig
+				: path.resolve( __dirname, './stylelint.config.js' ),
 			syntax: 'scss',
 		}),
 		// Commons

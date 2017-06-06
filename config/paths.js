@@ -9,13 +9,15 @@ function resolveApp( relativePath ) {
 }
 
 module.exports = {
-	resolveApp,
 	appBuild: resolveApp( 'dist' ),
+	appEslintConfig: resolveApp( '.eslintrc.js' ),
+	appImages: resolveApp( 'src/images' ),
 	appManifest: resolveApp( 'dist/assets.json' ),
 	appNodeModules: resolveApp( 'node_modules' ),
 	appPackageJson: resolveApp( 'package.json' ),
 	appPublic: resolveApp( 'public' ),
-	appImages: resolveApp( 'src/images' ),
 	appSrc: resolveApp( 'src' ),
+	appStylelintConfig: resolveApp( '.stylelintrc.js' ),
+	resolveApp,
 	testsSetup: resolveApp( 'src/setupTests.js' ),
 };
