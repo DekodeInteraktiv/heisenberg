@@ -20,7 +20,7 @@ const paths = require( './paths' );
  * Variables
  */
 const argv = process.argv.slice( 2 );
-const cacheBusting = ! argv.indexOf( '--no-filename-hashes' ) < 0;
+const cacheBusting = argv.indexOf( '--no-filename-hashes' ) < 0;
 
 /**
  * Entries
