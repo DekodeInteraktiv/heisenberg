@@ -55,6 +55,6 @@ module.exports = {
 		'selector-pseudo-element-colon-notation': 'double',
 		'selector-pseudo-element-no-unknown': true,
 		'selector-type-case': 'lower',
-		'selector-no-id': true,
+		'selector-max-id': 0,
 	},
 };
