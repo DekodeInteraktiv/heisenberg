@@ -21,7 +21,7 @@ module.exports = {
 
 		'unit-case': 'lower',
 		'unit-no-unknown': true,
-		'unit-whitelist': ['px', '%', 'deg', 'ms', 'em', 'vh', 'vw', 'rem'],
+		'unit-whitelist': ['px', '%', 'deg', 'ms', 'em', 'vh', 'vw', 'rem', 'fr'],
 
 		'value-list-comma-space-after': 'always-single-line',
 		'value-list-comma-space-before': 'never',
