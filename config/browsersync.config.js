@@ -34,7 +34,7 @@ module.exports = ( port, devPort ) => {
 					`<script type="text/javascript" src="${publicPath}bundle.js"></script>\n${match}`;
 			}
 		}],
-		codeSync: false,
+		codeSync: true,
 		timestamps: false,
 		logLevel: 'silent',
 	}
