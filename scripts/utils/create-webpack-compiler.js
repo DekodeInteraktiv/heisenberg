@@ -79,6 +79,13 @@ module.exports = function createWebpackCompiler( port, devPort, config, onReadyC
 
 		if ( ! isBrowserSyncRunning ) {
 			browserSync.init( browserSyncConfig( port, devPort ) );
+
+			browserSync.watch( '**/*.php', e => {
+				if ( 'change' === e ) {
+					browserSync.reload();
+				}
+			});
+
 			isBrowserSyncRunning = true;
 		}
 
