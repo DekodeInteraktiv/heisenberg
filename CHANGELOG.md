@@ -1,3 +1,6 @@
+## 0.2.1
+* Enable codeSync on Browser-Sync
+
 ## 0.2.0
 * Update dependencies
 * [#26](https://github.com/DekodeInteraktiv/heisenberg/pull/26) Reload browser on `.php` file changes
