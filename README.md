@@ -44,6 +44,17 @@ Builds the app for production to the `dist` folder.
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
+If you don't want the files to be hashed you can add `--no-filename-hashes` to
+the script in `package.json`.
+
+```json
+"scripts": {
+  ...
+  "build": "heisenberg-scripts build --no-filename-hashes",
+  ...
+}
+```
+
 ## Proxy
 The development mode is proxying an existing vhost. It will wrap your vhost
 with a proxy URL to view your site.
