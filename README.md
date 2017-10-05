@@ -12,6 +12,7 @@ If something doesn’t work please [file an issue](https://github.com/DekodeInte
 - [Proxy](#proxy)
 - [Editor style](#editor-style)
 - [Using Global Variables](#using-global-variables)
+- [Custom linting rules](#custom-linting-rules)
 - [Adding Flow](#adding-flow)
 - [Running Tests](#running-tests)
   - [Filename Conventions](#filename-conventions)
@@ -91,6 +92,13 @@ because of a typo.
 
 Alternatively, you can force the linter to ignore any line by adding
 `// eslint-disable-line` after it.
+
+## Custom linting rules
+Heisenberg comes with a default set of [stylelint](https://stylelint.io/) and
+[ESLint](https://eslint.org/) rules. These can however be overwritten in your
+project. To create your own config create a `.stylelintrc.js` or `.eslintrc.js`
+in the same folder your `package.json` file exists. Heisenberg will now use
+these files when linting your scss/js code.
 
 ## Adding Flow
 Flow is a static type checker that helps you write code with fewer bugs. Check
