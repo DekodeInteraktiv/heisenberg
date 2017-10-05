@@ -47,12 +47,12 @@ Your app is ready to be deployed!
 If you don't want the files to be hashed you can add `--no-filename-hashes` to
 the script in `package.json`.
 
-```json
-"scripts": {
-  ...
-  "build": "heisenberg-scripts build --no-filename-hashes",
-  ...
-}
+```js
+  // ...
+  "scripts": {
+    // ...
+    "build": "heisenberg-scripts build --no-filename-hashes"
+  }
 ```
 
 ## Proxy
