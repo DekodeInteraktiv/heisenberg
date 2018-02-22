@@ -1,6 +1,9 @@
 'use strict';
 
 module.exports = {
+	plugins: [
+		'stylelint-order'
+	],
 	rules: {
 		'color-hex-case': 'lower',
 		'color-no-invalid-hex': true,
@@ -56,5 +59,11 @@ module.exports = {
 		'selector-pseudo-element-no-unknown': true,
 		'selector-type-case': 'lower',
 		'selector-max-id': 0,
+
+		'order/order': [
+			'custom-properties',
+			'declarations'
+		],
+		'order/properties-alphabetical-order': true
 	},
 };
