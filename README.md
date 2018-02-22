@@ -7,22 +7,12 @@ If something doesn’t work please [file an issue](https://github.com/DekodeInte
 ## Table of Contents
 - [Available Scripts](#available-scripts)
   - [yarn start](#yarn-start)
-  - [yarn test](#yarn-test)
   - [yarn build](#yarn-build)
 - [Proxy](#proxy)
 - [Editor style](#editor-style)
 - [Using Global Variables](#using-global-variables)
 - [Custom linting rules](#custom-linting-rules)
 - [Adding Flow](#adding-flow)
-- [Running Tests](#running-tests)
-  - [Filename Conventions](#filename-conventions)
-  - [Command Line Interface](#command-line-interface)
-  - [Version Control Integration](#version-control-integration)
-  - [Initializing Test Environment](#initializing-test-environment)
-  - [Focusing and Excluding Tests](#focusing-and-excluding-tests)
-  - [Coverage Reporting](#coverage-reporting)
-  - [Continuous Integration](#continuous-integration)
-  - [Disabling jsdom](#disabling-jsdom)
 
 ## Available Scripts
 In the project directory, you can run:
@@ -35,9 +25,6 @@ The page will reload if you make edits.
 
 To run the development task it is required to define the [`proxy`](#proxy)
 field in `package.json`.
-
-### `yarn test`
-Launches the test runner in the interactive watch mode.
 
 ### `yarn build`
 Builds the app for production to the `dist` folder.
