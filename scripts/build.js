@@ -31,7 +31,52 @@ const copyImagesFolder = require( './utils/copy-images-folder' );
 const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
 
-// Create the production build.
+/**
+ * Variables
+ */
+const argv = process.argv.slice( 2 );
+const watchFiles = argv.indexOf( '--watch' ) !== -1;
+
+/**
+ * Print success message and stats
+ */
+function printSuccess( stats, previousFileSizes ) {
+	console.log( chalk.green( 'Compiled successfully.' ) );
+	console.log();
+
+	console.log( 'File sizes after gzip:' );
+	printFileSizesAfterBuild( stats, previousFileSizes );
+	console.log();
+}
+
+/**
+ * Check if any errors and print them if found
+ */
+function hasErrors( err, stats ) {
+	if ( err ) {
+		printErrors( 'Failed to compile.', [err] );
+		return true;
+	}
+
+	if ( stats.compilation.errors.length ) {
+		printErrors( 'Failed to compile.', stats.compilation.errors );
+		return true;
+	}
+
+	if ( process.env.CI && stats.compilation.warnings.length ) {
+		printErrors(
+			'Failed to compile. When process.env.CI = true, warnings are treated as failures. Most CI servers set this automatically.',
+			stats.compilation.warnings
+		);
+		return true;
+	}
+
+	return false;
+}
+
+/**
+ * Create the production build
+ */
 function build( previousFileSizes ) {
 	console.log( 'Creating an optimized production build...' );
 
@@ -43,32 +88,24 @@ function build( previousFileSizes ) {
 		process.exit( 1 );
 	}
 
-	compiler.run( ( err, stats ) => {
-		if ( err ) {
-			printErrors( 'Failed to compile.', [err] );
-			process.exit( 1 );
-		}
+	if ( watchFiles ) {
+		compiler.watch( {}, ( err, stats ) => {
+			if ( hasErrors( err, stats ) ) {
+				return;
+			}
 
-		if ( stats.compilation.errors.length ) {
-			printErrors( 'Failed to compile.', stats.compilation.errors );
-			process.exit( 1 );
-		}
+			printSuccess( stats, previousFileSizes );
+			console.log( 'Watching files...' );
+		});
+	} else {
+		compiler.run( ( err, stats ) => {
+			if ( hasErrors( err, stats ) ) {
+				process.exit( 1 );
+			}
 
-		if ( process.env.CI && stats.compilation.warnings.length ) {
-			printErrors(
-				'Failed to compile. When process.env.CI = true, warnings are treated as failures. Most CI servers set this automatically.',
-				stats.compilation.warnings
-			);
-			process.exit( 1 );
-		}
-
-		console.log( chalk.green( 'Compiled successfully.' ) );
-		console.log();
-
-		console.log( 'File sizes after gzip:' );
-		printFileSizesAfterBuild( stats, previousFileSizes );
-		console.log();
-	});
+			printSuccess( stats, previousFileSizes );
+		});
+	}
 }
 
 // First, read the current file sizes in build directory.
