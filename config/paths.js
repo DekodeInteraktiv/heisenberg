@@ -19,5 +19,4 @@ module.exports = {
 	appSrc: resolveApp( 'src' ),
 	appStylelintConfig: resolveApp( '.stylelintrc.js' ),
 	resolveApp,
-	testsSetup: resolveApp( 'src/setupTests.js' ),
 };
