@@ -1,0 +1,59 @@
+{
+  "name": "stylelint-config-heisenberg",
+  "version": "0.1.0-beta.0",
+  "description": "Stylelint configuration used by Heisenberg",
+  "repository": "DekodeInteraktiv/heisenberg",
+  "license": "GPL-3.0",
+  "bugs": "https://github.com/DekodeInteraktiv/heisenberg/issues",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=6.9.1"
+  },
+  "scripts": {
+    "lint:js": "eslint .",
+    "lint:md": "remark . --quiet --frail",
+    "lint": "npm-run-all --parallel lint:*",
+    "jest": "jest",
+    "test": "jest",
+    "watch": "jest --watch",
+    "stylelint-find-unused-rules": "stylelint-find-rules --config index.js"
+  },
+  "jest": {
+    "roots": [
+      "__tests__"
+    ],
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>/__tests__/*.js"
+    ],
+    "verbose": true
+  },
+  "remarkConfig": {
+    "plugins": [
+      "preset-lint-recommended",
+      "preset-lint-consistent"
+    ]
+  },
+  "peerDependencies": {
+    "stylelint": "^9.0.0"
+  },
+  "dependencies": {
+    "stylelint-config-wordpress": "^12.0.0",
+    "stylelint-order": "^0.8.1"
+  },
+  "devDependencies": {
+    "eslint": "^4.18.1",
+    "eslint-plugin-jest": "^21.12.2",
+    "eslint-plugin-wordpress": "git://github.com/WordPress-Coding-Standards/eslint-plugin-wordpress.git",
+    "jest": "^22.4.2",
+    "npm-run-all": "^4.1.2",
+    "remark-cli": "^5.0.0",
+    "remark-preset-lint-consistent": "^2.0.1",
+    "remark-preset-lint-recommended": "^3.0.1",
+    "stylelint": "^9.0.0",
+    "stylelint-find-rules": "^1.1.1"
+  }
+}
