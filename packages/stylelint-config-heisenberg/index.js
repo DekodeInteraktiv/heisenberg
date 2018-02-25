@@ -1,16 +1,65 @@
 'use strict';
 
 module.exports = {
-	extends: 'stylelint-config-wordpress/scss',
-	plugins: [
-		'stylelint-order',
-	],
+	extends: ['stylelint-config-wordpress/scss'],
+	plugins: ['stylelint-order'],
 	rules: {
-		'selector-pseudo-element-colon-notation': 'double',
+		'at-rule-empty-line-before': [ 'always', {
+			except: ['blockless-after-blockless', 'first-nested'],
+			ignore: ['after-comment'],
+			ignoreAtRules: ['else'],
+		} ],
+		'at-rule-no-vendor-prefix': true,
+		'at-rule-semicolon-space-before': 'never',
+		'block-opening-brace-space-after': 'always-single-line',
+		'declaration-block-no-redundant-longhand-properties': true,
+		'declaration-block-semicolon-newline-before': 'never-multi-line',
+		'declaration-block-semicolon-space-after': 'always-single-line',
+		'declaration-block-single-line-max-declarations': 1,
+		'declaration-empty-line-before': 'never',
+		'declaration-no-important': true,
+		'function-comma-newline-after': 'always-multi-line',
+		'function-max-empty-lines': 0,
+		'function-parentheses-newline-inside': 'always-multi-line',
+		'max-empty-lines': 1,
+		'media-feature-name-case': 'lower',
+		'media-feature-name-no-vendor-prefix': true,
+		'media-feature-parentheses-space-inside': 'always',
 		'order/order': [
-			'custom-properties',
-			'declarations',
+			[
+				'custom-properties',
+				'dollar-variables',
+				{
+					type: 'at-rule',
+					name: 'extend',
+				},
+				{
+					type: 'at-rule',
+					name: 'include',
+					hasBlock: false,
+				},
+				'declarations',
+				{
+					type: 'at-rule',
+					name: 'include',
+					hasBlock: true,
+				},
+				'rules',
+			],
 		],
 		'order/properties-alphabetical-order': true,
+		'property-no-vendor-prefix': true,
+		'rule-empty-line-before': [ 'always', {
+			ignore: ['after-comment'],
+			except: ['first-nested'],
+		} ],
+		'selector-descendant-combinator-no-non-space': true,
+		'selector-list-comma-newline-before': 'never-multi-line',
+		'selector-list-comma-space-after': 'always-single-line',
+		'selector-no-vendor-prefix': true,
+		'selector-pseudo-element-colon-notation': 'double',
+		'shorthand-property-no-redundant-values': true,
+		'value-list-max-empty-lines': 0,
+		'value-no-vendor-prefix': true,
 	},
 };
