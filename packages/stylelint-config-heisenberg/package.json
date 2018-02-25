@@ -29,11 +29,12 @@
     "verbose": true
   },
   "peerDependencies": {
-    "stylelint": "^8.0.0 || ^9.0.0"
+    "stylelint": "^9.0.0"
   },
   "dependencies": {
-    "stylelint-config-wordpress": "^12.0.0",
-    "stylelint-order": "^0.8.1"
+    "stylelint-config-recommended": "^2.1.0",
+    "stylelint-order": "^0.8.1",
+    "stylelint-scss": "^2.4.0"
   },
   "devDependencies": {
     "jest": "^22.4.2",
