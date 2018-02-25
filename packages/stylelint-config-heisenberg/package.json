@@ -1,0 +1,43 @@
+{
+  "name": "stylelint-config-heisenberg",
+  "version": "0.0.0",
+  "description": "Stylelint configuration used by Heisenberg",
+  "repository": "DekodeInteraktiv/heisenberg",
+  "license": "GPL-3.0",
+  "bugs": "https://github.com/DekodeInteraktiv/heisenberg/issues",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "engines": {
+    "node": ">=6.9.1"
+  },
+  "scripts": {
+    "jest": "jest",
+    "test": "jest",
+    "watch": "jest --watch",
+    "stylelint-find-unused-rules": "stylelint-find-rules --config index.js"
+  },
+  "jest": {
+    "roots": [
+      "__tests__"
+    ],
+    "testEnvironment": "node",
+    "testMatch": [
+      "<rootDir>/__tests__/*.js"
+    ],
+    "verbose": true
+  },
+  "peerDependencies": {
+    "stylelint": "^9.0.0"
+  },
+  "dependencies": {
+    "stylelint-config-wordpress": "^12.0.0",
+    "stylelint-order": "^0.8.1"
+  },
+  "devDependencies": {
+    "jest": "^22.4.2",
+    "stylelint": "^9.0.0",
+    "stylelint-find-rules": "^1.1.1"
+  }
+}
