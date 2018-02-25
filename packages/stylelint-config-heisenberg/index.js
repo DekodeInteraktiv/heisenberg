@@ -6,6 +6,7 @@ module.exports = {
 		'stylelint-order',
 	],
 	rules: {
+		'selector-pseudo-element-colon-notation': 'double',
 		'order/order': [
 			'custom-properties',
 			'declarations',
