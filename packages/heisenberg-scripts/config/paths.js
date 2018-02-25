@@ -1,9 +1,22 @@
 'use strict';
 
+/**
+ * External dependencies
+ */
 const path = require( 'path' );
 const fs = require( 'fs' );
+const cosmiconfig = require( 'cosmiconfig' );
 
+/**
+ * Variables
+ */
 const appDirectory = fs.realpathSync( process.cwd() );
+
+/**
+ * Resolve path helper
+ *
+ * @param {string} relativePath Path to file.
+ */
 function resolveApp( relativePath ) {
 	return path.resolve( appDirectory, relativePath );
 }
@@ -17,6 +30,8 @@ module.exports = {
 	appPackageJson: resolveApp( 'package.json' ),
 	appPublic: resolveApp( 'public' ),
 	appSrc: resolveApp( 'src' ),
-	appStylelintConfig: resolveApp( '.stylelintrc.js' ),
+	appStylelintConfig: cosmiconfig( 'stylelint', {
+		configPath: appDirectory,
+	}),
 	resolveApp,
 };
