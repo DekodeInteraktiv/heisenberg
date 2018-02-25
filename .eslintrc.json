@@ -1,16 +1,23 @@
 {
-	"env": {
-		"jest": true,
-		"node": true
-	},
-	"extends": [
-		"plugin:wordpress/recommended",
-		"plugin:jest/recommended"
-	],
-	"parserOptions": {
-		"sourceType": "module"
-	},
-	"plugins": [
-		"jest"
-	]
+  "env": {
+    "jest": true,
+    "node": true
+  },
+  "extends": [
+    "plugin:wordpress/recommended",
+    "plugin:wordpress/node",
+    "plugin:jest/recommended"
+  ],
+  "parserOptions": {
+    "sourceType": "module"
+  },
+  "plugins": [
+    "jest"
+  ],
+  "rules": {
+    "no-console": "off",
+    "no-process-exit": "off",
+    "no-sync": "off",
+    "wordpress/array-function-spacing": "off"
+  }
 }

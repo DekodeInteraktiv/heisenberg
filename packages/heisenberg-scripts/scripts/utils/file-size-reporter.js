@@ -21,9 +21,9 @@ function getDifferenceLabel( currentSize, previousSize ) {
 
 	if ( difference >= FIFTY_KILOBYTES ) {
 		return chalk.red( `+${fileSize}` );
-	} else if ( difference < FIFTY_KILOBYTES && difference > 0 ) {
+	} else if ( difference < FIFTY_KILOBYTES && 0 < difference ) {
 		return chalk.yellow( `+${fileSize}` );
-	} else if ( difference < 0 ) {
+	} else if ( 0 > difference ) {
 		return chalk.green( fileSize );
 	}
 
@@ -38,7 +38,6 @@ function removeFileNameHash( buildFolder, fileName ) {
 
 // Prints a detailed summary of build files.
 function printFileSizesAfterBuild( webpackStats, previousSizeMap ) {
-	let prevChunknames;
 	const root = previousSizeMap.root;
 	const sizes = previousSizeMap.sizes;
 
@@ -62,12 +61,12 @@ function printFileSizesAfterBuild( webpackStats, previousSizeMap ) {
 
 	const longestSizeLabelLength = Math.max.apply(
 		null,
-		assets.map( a => stripAnsi( a.sizeLabel ).length )
+		assets.map( asset => stripAnsi( asset.sizeLabel ).length )
 	);
 
 	const longestChunkLabelLength = Math.max.apply(
 		null,
-		assets.map( a => stripAnsi( a.chunkNames[0] ).length )
+		assets.map( asset => stripAnsi( asset.chunkNames[0] ).length )
 	);
 
 	const sortedAssets = _.orderBy( assets, [ asset => asset.folder + path.sep + asset.name.toLowerCase() ], [ 'asc' ] );

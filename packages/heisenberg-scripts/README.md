@@ -4,16 +4,6 @@ Heisenberg is a modern build setup, inspired by [Create react app](https://githu
 Heisenberg works on macOS, Windows, and Linux.<br />
 If something doesn’t work please [file an issue](https://github.com/DekodeInteraktiv/heisenberg/issues/new).
 
-## Table of Contents
-- [Available Scripts](#available-scripts)
-  - [yarn start](#yarn-start)
-  - [yarn build](#yarn-build)
-- [Proxy](#proxy)
-- [Editor style](#editor-style)
-- [Using Global Variables](#using-global-variables)
-- [Custom linting rules](#custom-linting-rules)
-- [Adding Flow](#adding-flow)
-
 ## Available Scripts
 In the project directory, you can run:
 
@@ -36,11 +26,11 @@ If you don't want the files to be hashed you can add `--no-filename-hashes` to
 the script in `package.json`.
 
 ```js
+// ...
+"scripts": {
   // ...
-  "scripts": {
-    // ...
-    "build": "heisenberg-scripts build --no-filename-hashes"
-  }
+  "build": "heisenberg-scripts build --no-filename-hashes"
+}
 ```
 
 ## Proxy
@@ -50,7 +40,7 @@ with a proxy URL to view your site.
 To define the proxy add a `proxy` field to your `package.json`, for example:
 
 ```json
-"proxy": "http://local-url.dev",
+"proxy": "http://local-url.test",
 ```
 
 ## Editor style
@@ -96,11 +86,10 @@ Recent versions of [Flow](http://flowtype.org/) work with Heisenberg projects
 out of the box.
 
 To add Flow to a Heisenberg project, follow these steps:
-
-1. Run `yarn add --dev flow-bin`.
-2. Add `"flow": "flow"` to the `scripts` section of your `package.json`.
-3. Run `yarn flow -- init` to create a [`.flowconfig` file](https://flowtype.org/docs/advanced-configuration.html) in the root directory.
-4. Add `// @flow` to any files you want to type check (for example, to `src/main.js`).
+	1. Run `yarn add --dev flow-bin`.
+	2. Add `"flow": "flow"` to the `scripts` section of your `package.json`.
+	3. Run `yarn flow -- init` to create a [`.flowconfig` file](https://flowtype.org/docs/advanced-configuration.html) in the root directory.
+	4. Add `// @flow` to any files you want to type check (for example, to `src/main.js`).
 
 Now you can run `yarn flow` to check the files for type errors.
 

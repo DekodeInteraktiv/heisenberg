@@ -35,4 +35,4 @@ module.exports = ( req, res, match ) => {
 	});
 
 	return isManifestFile ? '' : match;
-}
+};

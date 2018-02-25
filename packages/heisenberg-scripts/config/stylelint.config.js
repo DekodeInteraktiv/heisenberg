@@ -2,7 +2,7 @@
 
 module.exports = {
 	plugins: [
-		'stylelint-order'
+		'stylelint-order',
 	],
 	rules: {
 		'color-hex-case': 'lower',
@@ -61,8 +61,8 @@ module.exports = {
 
 		'order/order': [
 			'custom-properties',
-			'declarations'
+			'declarations',
 		],
-		'order/properties-alphabetical-order': true
+		'order/properties-alphabetical-order': true,
 	},
 };

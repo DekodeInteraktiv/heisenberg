@@ -35,7 +35,7 @@ const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
  * Variables
  */
 const argv = process.argv.slice( 2 );
-const watchFiles = argv.indexOf( '--watch' ) !== -1;
+const watchFiles = -1 !== argv.indexOf( '--watch' );
 
 /**
  * Print success message and stats

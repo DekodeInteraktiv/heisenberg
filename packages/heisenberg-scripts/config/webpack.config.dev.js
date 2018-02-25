@@ -20,7 +20,7 @@ const entry = [require.resolve( './utils/webpackHotDevClient' )];
 const appEntry = require( paths.appPackageJson ).entry;
 
 function addEntryFile( file ) {
-	if ( file.charAt( 0 ) === '.' ) {
+	if ( '.' === file.charAt( 0 ) ) {
 		entry.push( paths.resolveApp( file ) );
 	} else {
 		entry.push( file );
@@ -103,7 +103,7 @@ module.exports = {
 			{
 				test: /\.js$/,
 				use: [
-					"cache-loader",
+					'cache-loader',
 					{
 						loader: 'babel-loader',
 						options: {

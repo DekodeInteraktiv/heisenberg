@@ -71,7 +71,7 @@ module.exports = function createWebpackCompiler( port, devPort, config, onReadyC
 			browserSync.notify( 'Compiled successfully!' );
 		}
 
-		if ( typeof onReadyCallback === 'function' ) {
+		if ( 'function' === typeof onReadyCallback ) {
 			onReadyCallback( showInstructions );
 		}
 
@@ -80,8 +80,8 @@ module.exports = function createWebpackCompiler( port, devPort, config, onReadyC
 		if ( ! isBrowserSyncRunning ) {
 			browserSync.init( browserSyncConfig( port, devPort ) );
 
-			browserSync.watch( '**/*.php', e => {
-				if ( 'change' === e ) {
+			browserSync.watch( '**/*.php', event => {
+				if ( 'change' === event ) {
 					browserSync.reload();
 				}
 			});

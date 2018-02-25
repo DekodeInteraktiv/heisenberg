@@ -7,7 +7,7 @@ const args = process.argv.slice( 3 );
 
 switch ( script ) {
 	case 'build':
-	case 'start':
+	case 'start': {
 		const result = spawn.sync(
 			'node',
 			[require.resolve( `../scripts/${script}` )].concat( args ),
@@ -15,13 +15,13 @@ switch ( script ) {
 		);
 
 		if ( result.signal ) {
-			if ( result.signal === 'SIGKILL' ) {
+			if ( 'SIGKILL' === result.signal ) {
 				console.log(
 					'The build failed because the process exited too early. ' +
 					'This probably means the system ran out of memory or someone called ' +
 					'`kill -9` on the process.'
 				);
-			} else if ( result.signal === 'SIGTERM' ) {
+			} else if ( 'SIGTERM' === result.signal ) {
 				console.log(
 					'The build failed because the process exited too early. ' +
 					'Someone might have called `kill` or `killall`, or the system could ' +
@@ -34,6 +34,7 @@ switch ( script ) {
 
 		process.exit( result.status );
 		break;
+	}
 	default:
 		console.log( `Unknown script ${script}` );
 		break;

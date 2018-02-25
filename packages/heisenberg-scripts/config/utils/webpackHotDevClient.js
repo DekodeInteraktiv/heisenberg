@@ -1,7 +1,9 @@
+/* eslint-disable camelcase */
+
 'use strict';
 
 // Define public url
-__webpack_public_path__ = window.heisenbergDevUrl;
+window.__webpack_public_path__ = window.heisenbergDevUrl;
 
 /**
  * External dependencies
@@ -58,7 +60,7 @@ function isUpdateAvailable() {
 
 // Webpack disallows updates in other states.
 function canApplyUpdates() {
-	return module.hot.status() === 'idle';
+	return 'idle' === module.hot.status();
 }
 
 // Attempt to update code on the fly, fall back to a hard reload.
@@ -97,8 +99,8 @@ function tryApplyUpdates() {
 /**
  * Handle messages from the server.
  */
-connection.onmessage = function(e) {
-	var message = JSON.parse(e.data);
+connection.onmessage = function( event ) {
+	var message = JSON.parse( event.data );
 
 	switch ( message.type ) {
 		case 'hash':

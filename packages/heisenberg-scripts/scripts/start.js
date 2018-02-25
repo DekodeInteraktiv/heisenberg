@@ -25,7 +25,6 @@ const chalk = require( 'chalk' );
 const clearConsole = require( 'react-dev-utils/clearConsole' );
 const createWebpackCompiler = require( './utils/create-webpack-compiler' );
 const detect = require( '@timer/detect-port' );
-const getProcessForPort = require( 'react-dev-utils/getProcessForPort' );
 const validator = require( 'validator' );
 const WebpackDevServer = require( 'webpack-dev-server' );
 
@@ -54,7 +53,7 @@ if ( ! proxy ) {
 	process.exit( 1 );
 }
 
-if ( ! validator.isURL( proxy, { require_protocol: true } ) ) {
+if ( ! validator.isURL( proxy, { require_protocol: true } ) ) { // eslint-disable-line camelcase
 	console.log();
 	console.log( chalk.red( 'The proxy is not a valid url' ) );
 	console.log();
@@ -125,7 +124,7 @@ function run( port ) {
 // We attempt to use the default port but if it is busy, we offer the user to
 // run on a different port. `detect()` Promise resolves to the next free port.
 choosePort( HOST, DEFAULT_PORT ).then( port => {
-	if ( port == null ) {
+	if ( null === port ) {
 		// We have not found a port.
 		return;
 	}

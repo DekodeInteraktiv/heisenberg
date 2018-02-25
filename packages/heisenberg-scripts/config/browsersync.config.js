@@ -32,10 +32,10 @@ module.exports = ( port, devPort ) => {
 						`var heisenbergDevUrl = '${publicPath}';\n` +
 					'</script>\n' +
 					`<script type="text/javascript" src="${publicPath}bundle.js"></script>\n${match}`;
-			}
+			},
 		}],
 		codeSync: true,
 		timestamps: false,
 		logLevel: 'silent',
-	}
+	};
 };
