@@ -13,7 +13,10 @@ process.on( 'unhandledRejection', err => {
  * External dependencies
  */
 const chalk = require( 'chalk' );
+const cosmiconfig = require( 'cosmiconfig' );
 const fs = require( 'fs-extra' );
+const path = require( 'path' );
+const StyleLintPlugin = require( 'stylelint-webpack-plugin' );
 const webpack = require( 'webpack' );
 
 /**
@@ -77,11 +80,18 @@ function hasErrors( err, stats ) {
 /**
  * Create the production build
  */
-function build( previousFileSizes ) {
+function build( stylelintConfig, previousFileSizes ) {
 	console.log( 'Creating an optimized production build...' );
 
 	let compiler;
 	try {
+		config.plugins.push(
+			new StyleLintPlugin({
+				configFile: stylelintConfig ? stylelintConfig.filepath : path.resolve( __dirname, '../package.json' ),
+				syntax: 'scss',
+			})
+		);
+
 		compiler = webpack( config );
 	} catch ( err ) {
 		printErrors( 'Failed to compile.', [err] );
@@ -116,7 +126,9 @@ measureFileSizesBeforeBuild( paths.appBuild ).then( previousFileSizes => {
 	fs.emptyDirSync( paths.appBuild );
 
 	// Start the webpack build
-	build( previousFileSizes );
+	cosmiconfig( 'stylelint', { rcExtensions: true } ).load( paths.appDirectory ).then( stylelintConfig => {
+		build( stylelintConfig, previousFileSizes );
+	} );
 
 	// Copy images folder
 	copyImagesFolder();

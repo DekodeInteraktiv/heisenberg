@@ -5,7 +5,6 @@
  */
 const path = require( 'path' );
 const fs = require( 'fs' );
-const cosmiconfig = require( 'cosmiconfig' );
 
 /**
  * Variables
@@ -30,8 +29,6 @@ module.exports = {
 	appPackageJson: resolveApp( 'package.json' ),
 	appPublic: resolveApp( 'public' ),
 	appSrc: resolveApp( 'src' ),
-	appStylelintConfig: cosmiconfig( 'stylelint', {
-		configPath: appDirectory,
-	}),
+	appDirectory,
 	resolveApp,
 };

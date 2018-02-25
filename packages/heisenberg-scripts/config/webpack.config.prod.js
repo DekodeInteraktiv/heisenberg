@@ -7,8 +7,6 @@ const autoprefixer = require( 'autoprefixer' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const fs = require( 'fs' );
 const ManifestPlugin = require( 'webpack-manifest-plugin' );
-const path = require( 'path' );
-const StyleLintPlugin = require( 'stylelint-webpack-plugin' );
 const webpack = require( 'webpack' );
 
 /**
@@ -136,13 +134,6 @@ module.exports = {
 		],
 	},
 	plugins: [
-		// Lint SCSS files
-		new StyleLintPlugin({
-			configFile: fs.existsSync( paths.appStylelintConfig )
-				? paths.appStylelintConfig
-				: path.resolve( __dirname, './stylelint.config.js' ),
-			syntax: 'scss',
-		}),
 		// Commons
 		new webpack.optimize.CommonsChunkPlugin({
 			name: 'commons',
