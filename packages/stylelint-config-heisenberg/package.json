@@ -29,7 +29,7 @@
     "verbose": true
   },
   "peerDependencies": {
-    "stylelint": "^9.0.0"
+    "stylelint": "^8.0.0 || ^9.0.0"
   },
   "dependencies": {
     "stylelint-config-wordpress": "^12.0.0",
