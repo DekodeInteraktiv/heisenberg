@@ -1,6 +1,6 @@
 {
   "name": "heisenberg-scripts",
-  "version": "0.3.0-beta.2",
+  "version": "0.3.0-beta.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DekodeInteraktiv/heisenberg.git"
@@ -61,6 +61,5 @@
     "webpack": "3.11.0",
     "webpack-dev-server": "2.11.1",
     "webpack-manifest-plugin": "1.3.2"
-  },
-  "devDependencies": {}
+  }
 }
