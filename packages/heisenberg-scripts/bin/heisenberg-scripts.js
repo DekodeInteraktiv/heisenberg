@@ -7,7 +7,8 @@ const args = process.argv.slice( 3 );
 
 switch ( script ) {
 	case 'build':
-	case 'start': {
+	case 'start':
+	case 'icons': {
 		const result = spawn.sync(
 			'node',
 			[require.resolve( `../scripts/${script}` )].concat( args ),
