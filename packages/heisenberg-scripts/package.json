@@ -18,7 +18,8 @@
   "files": [
     "bin",
     "config",
-    "scripts"
+    "scripts",
+    "assets"
   ],
   "stylelint": {
     "extends": "stylelint-config-heisenberg"
