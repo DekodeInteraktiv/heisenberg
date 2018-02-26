@@ -33,5 +33,7 @@ if ( ! function_exists( '{{name}}_get_icon' ) ) {
 
 		switch ( $icon ) {
 			default:
-				$svg = sprintf( 'Missing icon - %s', esc_html( $icon ) );
+				if ( defined( 'WP_DEBUG' ) && true === WP_DEBUG ) {
+					$svg = sprintf( 'Missing icon - %s', esc_html( $icon ) );
+				}
 				break;
