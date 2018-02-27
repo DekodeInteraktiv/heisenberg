@@ -33,9 +33,10 @@ function build( customConfig ) {
 		options: {
 			plugins: [
 				{ removeAttrs: {} },
-				{ removeViewBox: false },
+				{ removeDimensions: true },
 				{ removeEmptyAttrs: false },
 				{ removeTitle: true },
+				{ removeViewBox: false },
 			],
 		},
 	}, customConfig );
