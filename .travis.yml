@@ -13,3 +13,6 @@ before_script:
 
 script:
   - yarn lint
+
+notifications:
+  email: false
