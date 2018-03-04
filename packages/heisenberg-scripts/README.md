@@ -29,9 +29,10 @@ Your app is ready to be deployed!
 Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig).
 Starting from the current working directory, it will look for the following
 possible sources, in this order:
-	- a `heisenberg` property in `package.json`
-	- a `.heisenbergrc` file
-	- a `heisenberg.config.js` file exporting a JS object
+
+-   a `heisenberg` property in `package.json`
+-   a `.heisenbergrc` file
+-   a `heisenberg.config.js` file exporting a JS object
 
 The `.heisenbergrc` file (without extension) can be in JSON or YAML format. Alternately, you can add a filename extension to designate JSON, YAML, or JS format: `.heisenbergrc.json`, `.heisenbergrc.yaml`, `.heisenbergrc.yml`, `.heisenbergrc.js`. You may want to use an extension so that your text editor can better interpret the file, and help with syntax checking and highlighting.
 
@@ -124,10 +125,10 @@ Recent versions of [Flow](http://flowtype.org/) work with Heisenberg projects
 out of the box.
 
 To add Flow to a Heisenberg project, follow these steps:
-	1. Run `yarn add --dev flow-bin`.
-	2. Add `"flow": "flow"` to the `scripts` section of your `package.json`.
-	3. Run `yarn flow -- init` to create a [`.flowconfig` file](https://flowtype.org/docs/advanced-configuration.html) in the root directory.
-	4. Add `// @flow` to any files you want to type check (for example, to `src/main.js`).
+1.   Run `yarn add --dev flow-bin`.
+2.   Add `"flow": "flow"` to the `scripts` section of your `package.json`.
+3.   Run `yarn flow -- init` to create a [`.flowconfig` file](https://flowtype.org/docs/advanced-configuration.html) in the root directory.
+4.   Add `// @flow` to any files you want to type check (for example, to `src/main.js`).
 
 Now you can run `yarn flow` to check the files for type errors.
 
