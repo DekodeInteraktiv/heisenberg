@@ -13,7 +13,6 @@ process.on( 'unhandledRejection', err => {
  * External dependencies
  */
 const chalk = require( 'chalk' );
-const cosmiconfig = require( 'cosmiconfig' );
 const eachAsync = require( 'each-async' );
 const fs = require( 'fs' );
 const path = require( 'path' );
@@ -22,6 +21,7 @@ const SVGO = require( 'svgo' );
 /**
  * Internal dependencies
  */
+const getConfig = require( './utils/get-config' );
 const paths = require( '../config/paths' );
 
 function build( customConfig ) {
@@ -84,12 +84,6 @@ function build( customConfig ) {
 }
 
 // Find custom config and build
-cosmiconfig( 'heisenberg', { rcExtensions: true } ).load( paths.appDirectory ).then( config => {
-	let customConfig = {};
-
-	if ( config && config.config.icons ) {
-		customConfig = config.config.icons;
-	}
-
-	build( customConfig );
+getConfig( 'icons' ).then( config => {
+	build( config );
 } );

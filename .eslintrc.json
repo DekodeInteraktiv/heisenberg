@@ -15,6 +15,7 @@
     "jest"
   ],
   "rules": {
+    "newline-per-chained-call": "off",
     "no-console": "off",
     "no-process-exit": "off",
     "no-sync": "off",
