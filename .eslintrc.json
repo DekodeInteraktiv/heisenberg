@@ -19,6 +19,7 @@
     "no-console": "off",
     "no-process-exit": "off",
     "no-sync": "off",
+    "node/no-missing-require": "off",
     "wordpress/array-function-spacing": "off"
   }
 }
