@@ -23,6 +23,7 @@ The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
 ### `yarn icons`
+Builds a php icon file.
 
 ## Configuration
 ### Loading the configuration object
