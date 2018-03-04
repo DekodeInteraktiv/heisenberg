@@ -22,18 +22,56 @@ Builds the app for production to the `dist` folder.
 The build is minified and the filenames include the hashes.<br />
 Your app is ready to be deployed!
 
-If you don't want the files to be hashed you can add `--no-filename-hashes` to
-the script in `package.json`.
+### `yarn icons`
 
-```js
-// ...
-"scripts": {
-  // ...
-  "build": "heisenberg-scripts build --no-filename-hashes"
+## Configuration
+### Loading the configuration object
+Finding and loading of your configuration object is done with [cosmiconfig](https://github.com/davidtheclark/cosmiconfig).
+Starting from the current working directory, it will look for the following
+possible sources, in this order:
+	- a `heisenberg` property in `package.json`
+	- a `.heisenbergrc` file
+	- a `heisenberg.config.js` file exporting a JS object
+
+The `.heisenbergrc` file (without extension) can be in JSON or YAML format. Alternately, you can add a filename extension to designate JSON, YAML, or JS format: `.heisenbergrc.json`, `.heisenbergrc.yaml`, `.heisenbergrc.yml`, `.heisenbergrc.js`. You may want to use an extension so that your text editor can better interpret the file, and help with syntax checking and highlighting.
+
+Once one of these is found and parsed, the search will stop and that object will be used.
+
+### The configuration object
+The configuration object can have the following properties.
+
+#### `build`
+Build determine how files should be build.
+
+```json
+"build": {
+	"commonsChunkPlugin": true,
+	"hashFilenames": true,
 }
 ```
 
-## Proxy
+#### `icons`
+Build determine how the icon file should be build.
+
+```json
+"icons": {
+	"package": "Heisenberg",
+	"name": "heisenberg",
+	"src": "src/icons",
+	"dest": "inc/icons.php",
+	"options": {
+		"plugins": [
+			{ "removeAttrs": {} },
+			{ "removeDimensions": true },
+			{ "removeEmptyAttrs": false },
+			{ "removeTitle": true },
+			{ "removeViewBox": false }
+		]
+	}
+}
+```
+
+### Proxy
 The development mode is proxying an existing vhost. It will wrap your vhost
 with a proxy URL to view your site.
 
