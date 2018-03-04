@@ -13,6 +13,7 @@ const paths = require( '../../config/paths' );
  */
 const defaultConfig = {
 	icons: {},
+	build: {},
 };
 
 /**

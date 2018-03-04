@@ -16,7 +16,6 @@ const chalk = require( 'chalk' );
 const cosmiconfig = require( 'cosmiconfig' );
 const fs = require( 'fs-extra' );
 const path = require( 'path' );
-const StyleLintPlugin = require( 'stylelint-webpack-plugin' );
 const webpack = require( 'webpack' );
 
 /**
@@ -27,6 +26,7 @@ const paths = require( '../config/paths' );
 const printErrors = require( './utils/print-errors' );
 const config = require( '../config/webpack.config.prod' );
 const copyImagesFolder = require( './utils/copy-images-folder' );
+const getConfig = require( './utils/get-config' );
 
 /**
  * Build
@@ -80,19 +80,20 @@ function hasErrors( err, stats ) {
 /**
  * Create the production build
  */
-function build( stylelintConfig, previousFileSizes ) {
+function build( webpackOptions, stylelintConfig, previousFileSizes ) {
 	console.log( 'Creating an optimized production build...' );
+
+	// WebpackConfigDefaults
+	const options = Object.assign( {
+		commonsChunkPlugin: true,
+		hashFilenames: true,
+	}, webpackOptions );
+
+	options.stylelintConfigFile = stylelintConfig ? stylelintConfig.filepath : path.resolve( __dirname, '../package.json' );
 
 	let compiler;
 	try {
-		config.plugins.push(
-			new StyleLintPlugin({
-				configFile: stylelintConfig ? stylelintConfig.filepath : path.resolve( __dirname, '../package.json' ),
-				syntax: 'scss',
-			})
-		);
-
-		compiler = webpack( config );
+		compiler = webpack( config( options ) );
 	} catch ( err ) {
 		printErrors( 'Failed to compile.', [err] );
 		process.exit( 1 );
@@ -126,8 +127,10 @@ measureFileSizesBeforeBuild( paths.appBuild ).then( previousFileSizes => {
 	fs.emptyDirSync( paths.appBuild );
 
 	// Start the webpack build
-	cosmiconfig( 'stylelint', { rcExtensions: true } ).load( paths.appDirectory ).then( stylelintConfig => {
-		build( stylelintConfig, previousFileSizes );
+	getConfig( 'build' ).then( options => {
+		cosmiconfig( 'stylelint', { rcExtensions: true } ).load( paths.appDirectory ).then( stylelintConfig => {
+			build( options, stylelintConfig, previousFileSizes );
+		} );
 	} );
 
 	// Copy images folder
