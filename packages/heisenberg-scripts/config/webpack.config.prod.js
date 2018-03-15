@@ -9,6 +9,7 @@ const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const fs = require( 'fs' );
 const ManifestPlugin = require( 'webpack-manifest-plugin' );
 const StyleLintPlugin = require( 'stylelint-webpack-plugin' );
+const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
 const webpack = require( 'webpack' );
 
 /**
@@ -151,12 +152,14 @@ module.exports = ( options ) => {
 			// if (process.env.NODE_ENV === 'development') { ... }.
 			new webpack.DefinePlugin( JSON.stringify( process.env.NODE_ENV || 'production' ) ),
 			// Minify the code.
-			new webpack.optimize.UglifyJsPlugin({
-				compress: {
-					warnings: false,
-				},
-				output: {
-					comments: false,
+			new UglifyJsPlugin({
+				uglifyOptions: {
+					compress: {
+						warnings: false,
+					},
+					output: {
+						comments: false,
+					},
 				},
 			}),
 			// Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
