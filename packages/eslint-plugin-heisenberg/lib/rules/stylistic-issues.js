@@ -114,9 +114,7 @@ module.exports = {
 	// Require newline before `return` statement
 	'newline-before-return': 'off',
 	// Enforce newline after each call when chaining the calls
-	'newline-per-chained-call': ['warn', {
-		ignoreChainWithDepth: 3,
-	}],
+	'newline-per-chained-call': 'off',
 	// Disallow use of the Array constructor
 	'no-array-constructor': 'error',
 	// Disallow bitwise operators
