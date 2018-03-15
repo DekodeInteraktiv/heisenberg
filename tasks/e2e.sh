@@ -75,5 +75,9 @@ yarn icons
 # Check for expected output
 exists dist/icons.php
 
+# Lint icon file.
+composer install
+composer phpcs
+
 # Cleanup
 cleanup
