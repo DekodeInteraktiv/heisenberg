@@ -8,6 +8,8 @@
  * @package {{package}}
  */
 
+declare( strict_types=1 );
+
 if ( ! function_exists( '{{name}}_get_icon' ) ) {
 	/**
 	 * Get SVG Icon
