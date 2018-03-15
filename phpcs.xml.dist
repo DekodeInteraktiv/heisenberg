@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<ruleset name="Heisenberg">
+	<description>Heisenberg Coding Standards</description>
+
+	<file>.</file>
+	<arg name="extensions" value="php" />
+
+	<!-- Exclude dev files -->
+	<exclude-pattern>*/assets/icons/*.php</exclude-pattern>
+
+	<!-- Config options -->
+	<config name="testVersion" value="7.0-" />
+
+	<!-- Rules -->
+	<rule ref="Dekode" />
+</ruleset>
