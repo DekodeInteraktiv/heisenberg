@@ -2846,9 +2846,9 @@ escope@^3.6.0:
     esrecurse "^4.1.0"
     estraverse "^4.1.1"
 
-eslint-find-rules@3.2.1:
-  version "3.2.1"
-  resolved "https://registry.yarnpkg.com/eslint-find-rules/-/eslint-find-rules-3.2.1.tgz#39405ca41891d15ba9c4c023366566c3de9395ea"
+eslint-find-rules@3.2.2:
+  version "3.2.2"
+  resolved "https://registry.yarnpkg.com/eslint-find-rules/-/eslint-find-rules-3.2.2.tgz#3287551b3fa09e221011521df05b0bb64234759a"
   dependencies:
     cliui "^3.2.0"
     eslint-rule-documentation "^1.0.0"
