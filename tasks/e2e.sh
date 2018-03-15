@@ -62,6 +62,11 @@ fi
 # Bootstrap monorepo
 yarn
 
+# Run tests
+cd packages/stylelint-config-heisenberg/
+yarn test
+cd ../..
+
 # Test local build command
 yarn build
 
