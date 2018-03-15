@@ -14,5 +14,6 @@ script:
   - yarn lint
 before_script:
   - yarn install
+  - phpenv local 7.0
 notifications:
   email: false
