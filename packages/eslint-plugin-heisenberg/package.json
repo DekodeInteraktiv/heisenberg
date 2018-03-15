@@ -9,7 +9,7 @@
     "find-rules": "eslint-find-rules lib/all.js -u -n"
   },
   "engines": {
-    "node": ">=9"
+    "node": ">=8"
   },
   "peerDependencies": {
     "eslint": "^4.18.1"
