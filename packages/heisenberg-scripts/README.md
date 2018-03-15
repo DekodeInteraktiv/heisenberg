@@ -1,4 +1,4 @@
-# Heisenberg 🦄
+# Heisenberg
 Heisenberg is a modern build setup, inspired by [Create react app](https://github.com/facebookincubator/create-react-app/).
 
 Heisenberg works on macOS, Windows, and Linux.<br />
@@ -49,6 +49,7 @@ Build determine how files should be build.
 "build": {
 	"commonsChunkPlugin": true,
 	"hashFilenames": true,
+	"manifest": true,
 }
 ```
 

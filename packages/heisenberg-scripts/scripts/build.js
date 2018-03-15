@@ -87,6 +87,7 @@ function build( webpackOptions, stylelintConfig, previousFileSizes ) {
 	const options = Object.assign( {
 		commonsChunkPlugin: true,
 		hashFilenames: true,
+		manifest: true,
 	}, webpackOptions );
 
 	options.stylelintConfigFile = stylelintConfig ? stylelintConfig.filepath : path.resolve( __dirname, '../package.json' );
