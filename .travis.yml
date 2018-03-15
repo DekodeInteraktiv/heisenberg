@@ -1,19 +1,26 @@
 sudo: false
 dist: trusty
-node_js:
-  - 8
-  - 9
+
+language: node_js
+
 cache:
   directories:
   - node_modules
   - packages/heisenberg-scripts/node_modules
 install: true
-script:
+
 script:
   - tasks/e2e.sh
   - yarn lint
+
 before_script:
   - yarn install
   - phpenv local 7.0
+
 notifications:
   email: false
+
+matrix:
+  include:
+    - node_js: 8
+    - node_js: 9
