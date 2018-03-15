@@ -16,7 +16,7 @@
   },
   "devDependencies": {
     "eslint": "4.18.2",
-    "eslint-find-rules": "3.2.1"
+    "eslint-find-rules": "3.2.2"
   },
   "dependencies": {
     "eslint-plugin-jsdoc": "3.5.0",
