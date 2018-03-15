@@ -1,18 +1,19 @@
 sudo: false
 dist: trusty
-
-matrix:
-  fast_finish: true
-
-  include:
-    - language: node_js
-      node_js: 9
-
+node_js:
+  - 8
+  - 9
+cache:
+  directories:
+  - node_modules
+  - packages/heisenberg-scripts/node_modules
+install: true
+script:
+script:
+  - tasks/e2e.sh
+  - yarn lint
 before_script:
   - yarn install
-
-script:
-  - yarn lint
-
+  - phpenv local 7.0
 notifications:
   email: false
