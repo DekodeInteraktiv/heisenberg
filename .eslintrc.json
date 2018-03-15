@@ -4,8 +4,7 @@
     "node": true
   },
   "extends": [
-    "plugin:wordpress/recommended",
-    "plugin:wordpress/node",
+    "plugin:heisenberg/recommended",
     "plugin:jest/recommended"
   ],
   "parserOptions": {
@@ -15,11 +14,6 @@
     "jest"
   ],
   "rules": {
-    "newline-per-chained-call": "off",
-    "no-console": "off",
-    "no-process-exit": "off",
-    "no-sync": "off",
-    "node/no-missing-require": "off",
-    "wordpress/array-function-spacing": "off"
+    "no-console": "off"
   }
 }
