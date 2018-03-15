@@ -12,6 +12,6 @@ if ( ! function_exists( '{{name}}_the_icon' ) ) {
 	 * @param array  $args Arguments.
 	 */
 	function {{name}}_the_icon( string $icon, array $args = [] ) {
-		echo {{name}}_get_icon( $icon, $args );
+		echo {{name}}_get_icon( $icon, $args ); // WPCS: XSS OK.
 	}
 }
