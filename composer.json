@@ -5,11 +5,7 @@
     "php": ">=7.0"
   },
   "require-dev": {
-    "dekodeinteraktiv/coding-standards": "^0.3.0"
-  },
-  "scripts" : {
-      "phpcs" : [
-        "./vendor/bin/phpcs"
-      ]
+    "dekodeinteraktiv/coding-standards": "^0.3.0",
+    "phpunit/phpunit": "^6"
   }
 }
