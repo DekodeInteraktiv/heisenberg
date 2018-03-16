@@ -9,6 +9,15 @@ module.exports = {
 		node: true,
 	},
 
+	parserOptions: {
+		ecmaVersion: 2017,
+		sourceType: 'module',
+		ecmaFeatures: {
+			generators: true,
+			experimentalObjectRestSpread: true,
+		},
+	},
+
 	rules: merge(
 		require( './rules/best-practices' ),
 		require( './rules/es6' ),
