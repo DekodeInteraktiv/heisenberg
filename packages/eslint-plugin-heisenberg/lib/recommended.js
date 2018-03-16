@@ -1,6 +1,8 @@
 const merge = require( 'merge' );
 
 module.exports = {
+	plugins: [ 'import', 'flowtype' ],
+
 	env: {
 		es6: true,
 		browser: true,
