@@ -10,3 +10,4 @@ yarn-error.log*
 /vendor
 /.cache-loader
 /dist
+/.changelog

@@ -2,5 +2,18 @@
   "lerna": "2.9.0",
   "useWorkspaces": true,
   "npmClient": "yarn",
-  "version": "independent"
+  "version": "independent",
+  "changelog": {
+    "repo": "dekodeinteraktiv/heisenberg",
+    "labels": {
+      "[Type] New feature": "New Feature",
+      "[Type] Breaking change": "Breaking Change",
+      "[Type] Bug": "Bug Fix",
+      "[Type] Enhancement": "Enhancement",
+      "[Type] Documentation": "Documentation",
+      "[Type] Internal": "Internal",
+      "[Type] Dependency": "Dependencies"
+    },
+    "cacheDir": ".changelog"
+  }
 }

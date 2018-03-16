@@ -7,6 +7,7 @@
     "eslint": "4.18.2",
     "eslint-plugin-jest": "21.15.0",
     "lerna": "2.9.0",
+    "lerna-changelog": "0.7.0",
     "npm-run-all": "4.1.2",
     "remark-cli": "5.0.0",
     "remark-preset-lint-consistent": "2.0.1",
@@ -17,7 +18,8 @@
     "icons": "node packages/heisenberg-scripts/bin/heisenberg-scripts.js icons",
     "lint:js": "eslint . --ignore-path .gitignore",
     "lint:md": "remark . --quiet --frail",
-    "lint": "npm-run-all --parallel lint:*"
+    "lint": "npm-run-all --parallel lint:*",
+    "changelog": "lerna-changelog"
   },
   "remarkConfig": {
     "plugins": [
