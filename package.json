@@ -7,7 +7,7 @@
     "node": ">=8"
   },
   "devDependencies": {
-    "eslint": "4.18.2",
+    "eslint": "4.19.0",
     "eslint-plugin-jest": "21.15.0",
     "lerna": "2.9.0",
     "lerna-changelog": "0.7.0",
