@@ -3,6 +3,9 @@
   "workspaces": [
     "packages/*"
   ],
+  "engines": {
+    "node": ">=8"
+  },
   "devDependencies": {
     "eslint": "4.18.2",
     "eslint-plugin-jest": "21.15.0",
