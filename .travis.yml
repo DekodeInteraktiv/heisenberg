@@ -12,7 +12,7 @@ cache:
 install: true
 
 before_script:
-  - phpenv local 7.0
+  - phpenv local 7.1
 
 script:
   - tasks/e2e.sh

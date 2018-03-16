@@ -2,7 +2,7 @@
   "name": "heisenberg",
   "description": "Heisenberg Scripts",
   "require": {
-    "php": ">=7.0"
+    "php": ">=7.1"
   },
   "require-dev": {
     "dekodeinteraktiv/coding-standards": "^0.3.0",
