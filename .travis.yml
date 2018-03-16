@@ -7,20 +7,20 @@ cache:
   directories:
   - node_modules
   - packages/heisenberg-scripts/node_modules
+  - vendor
+
 install: true
+
+before_script:
+  - phpenv local 7.1
 
 script:
   - tasks/e2e.sh
-  - yarn lint
-
-before_script:
-  - yarn install
-  - phpenv local 7.0
-
-notifications:
-  email: false
 
 matrix:
   include:
     - node_js: 8
     - node_js: 9
+
+notifications:
+  email: false

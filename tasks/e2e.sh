@@ -62,6 +62,9 @@ fi
 # Bootstrap monorepo
 yarn
 
+# Lint all JS / MD files
+yarn lint
+
 # Run tests
 cd packages/stylelint-config-heisenberg/
 yarn test
@@ -83,7 +86,11 @@ exists dist/icons.php
 # Lint icon file.
 find -L dist -name '*.php' -print0 | xargs -0 -n 1 -P 4 php -l
 composer install
-composer phpcs
+./vendor/bin/phpcs
+
+# Unit test icon file
+bash tasks/install-wp-tests.sh wordpress_test root '' localhost latest
+./vendor/bin/phpunit
 
 # Cleanup
 cleanup
