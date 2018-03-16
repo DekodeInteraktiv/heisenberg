@@ -26,7 +26,7 @@ const paths = require( '../config/paths' );
 const printErrors = require( './utils/print-errors' );
 const config = require( '../config/webpack.config.prod' );
 const copyImagesFolder = require( './utils/copy-images-folder' );
-const getConfig = require( './utils/get-config' );
+const getHeisenbergConfig = require( './utils/get-config' );
 
 /**
  * Build
@@ -80,8 +80,11 @@ function hasErrors( err, stats ) {
 /**
  * Create the production build
  */
-function build( webpackOptions, stylelintConfig, previousFileSizes ) {
+async function build( previousFileSizes ) {
 	console.log( 'Creating an optimized production build...' );
+
+	const webpackOptions = await getHeisenbergConfig( 'build' );
+	const stylelintConfig = await cosmiconfig( 'stylelint', { rcExtensions: true } ).load( paths.appDirectory );
 
 	// WebpackConfigDefaults
 	const options = Object.assign( {
@@ -128,11 +131,7 @@ measureFileSizesBeforeBuild( paths.appBuild ).then( previousFileSizes => {
 	fs.emptyDirSync( paths.appBuild );
 
 	// Start the webpack build
-	getConfig( 'build' ).then( options => {
-		cosmiconfig( 'stylelint', { rcExtensions: true } ).load( paths.appDirectory ).then( stylelintConfig => {
-			build( options, stylelintConfig, previousFileSizes );
-		} );
-	} );
+	build( previousFileSizes );
 
 	// Copy images folder
 	copyImagesFolder();
