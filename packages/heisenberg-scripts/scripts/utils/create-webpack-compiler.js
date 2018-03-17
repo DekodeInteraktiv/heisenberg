@@ -7,6 +7,7 @@ const bs = require( 'browser-sync' );
 const chalk = require( 'chalk' );
 const clearConsole = require( 'react-dev-utils/clearConsole' );
 const formatWebpackMessages = require( 'react-dev-utils/formatWebpackMessages' );
+const openBrowser = require( 'react-dev-utils/openBrowser' );
 const webpack = require( 'webpack' );
 
 /**
@@ -32,7 +33,7 @@ if ( isSmokeTest ) {
 	};
 }
 
-module.exports = function createWebpackCompiler( port, devPort, config, onReadyCallback ) {
+module.exports = function createWebpackCompiler( port, devPort, browserUrl, config, onReadyCallback ) {
 	// "Compiler" is a low-level interface to Webpack.
 	// It lets us listen to some events and provide our own custom messages.
 	let compiler;
@@ -90,7 +91,9 @@ module.exports = function createWebpackCompiler( port, devPort, config, onReadyC
 		isFirstCompile = false;
 
 		if ( ! isBrowserSyncRunning ) {
-			browserSync.init( browserSyncConfig( port, devPort ) );
+			browserSync.init( browserSyncConfig( port, devPort ), () => {
+				openBrowser( browserUrl );
+			} );
 
 			browserSync.watch( '**/*.php', event => {
 				if ( 'change' === event ) {
