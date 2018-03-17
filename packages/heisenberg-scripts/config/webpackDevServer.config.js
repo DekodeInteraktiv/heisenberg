@@ -10,7 +10,7 @@ module.exports = ( host, allowedHost ) => {
 	return {
 		compress: true,
 		clientLogLevel: 'none',
-		contentBase: paths.appPublic,
+		contentBase: paths.appDirectory,
 		watchContentBase: true,
 		hot: true,
 		publicPath: '/',
