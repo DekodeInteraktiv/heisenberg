@@ -20,6 +20,18 @@ const browserSyncConfig = require( '../../config/browsersync.config' );
 const isInteractive = process.stdout.isTTY;
 let handleCompile;
 
+// Check if it is a test.
+const isSmokeTest = process.argv.some( arg => -1 < arg.indexOf( '--smoke-test' ) );
+if ( isSmokeTest ) {
+	handleCompile = ( err, stats ) => {
+		if ( err || stats.hasErrors() || stats.hasWarnings() ) {
+			process.exit(1);
+		} else {
+			process.exit(0);
+		}
+	};
+}
+
 module.exports = function createWebpackCompiler( port, devPort, config, onReadyCallback ) {
 	// "Compiler" is a low-level interface to Webpack.
 	// It lets us listen to some events and provide our own custom messages.

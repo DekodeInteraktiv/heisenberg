@@ -78,6 +78,9 @@ yarn build
 exists dist/js/*.js
 exists dist/css/*.css
 
+# Test local start command
+yarn start --smoke-test
+
 # Test local icon build command
 yarn icons
 
