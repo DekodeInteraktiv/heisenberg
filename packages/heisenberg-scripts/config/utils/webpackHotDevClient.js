@@ -3,7 +3,7 @@
 'use strict';
 
 // Define public url
-window.__webpack_public_path__ = window.heisenbergDevUrl;
+__webpack_public_path__ = window.heisenbergDevUrl; // eslint-disable-line
 
 /**
  * External dependencies
