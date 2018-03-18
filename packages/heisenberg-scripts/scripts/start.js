@@ -24,7 +24,7 @@ const {
 const chalk = require( 'chalk' );
 const clearConsole = require( 'react-dev-utils/clearConsole' );
 const createWebpackCompiler = require( './utils/create-webpack-compiler' );
-const detect = require( '@timer/detect-port' );
+const detect = require( 'detect-port-alt' );
 const validator = require( 'validator' );
 const WebpackDevServer = require( 'webpack-dev-server' );
 
