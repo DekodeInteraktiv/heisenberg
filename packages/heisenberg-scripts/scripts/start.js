@@ -20,7 +20,6 @@ require( '../config/env' );
 /**
  * External dependencies
  */
-const _ = require( 'lodash' );
 const {
 	choosePort,
 	prepareUrls,
@@ -37,13 +36,13 @@ const WebpackDevServer = require( 'webpack-dev-server' );
  */
 const config = require( '../config/webpack.config.dev' );
 const devServerConfig = require( '../config/webpackDevServer.config' );
-const paths = require( '../config/paths' );
+const getProxy = require( '../config/env' ).getProxy;
 
 /**
  * Variables
  */
 const isInteractive = process.stdout.isTTY;
-const proxy = _.trim( require( paths.appPackageJson ).proxy );
+const proxy = getProxy();
 const DEFAULT_PORT = parseInt( process.env.PORT, 10 ) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
 

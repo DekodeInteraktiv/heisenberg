@@ -84,6 +84,9 @@ To define the proxy add a `proxy` field to your `package.json`, for example:
 "proxy": "http://local-url.test",
 ```
 
+You can overwrite the proxy defined in `package.json` by using the environment
+variable `HEISENBERG_PROXY`.
+
 ## Editor style
 In WordPress you can create a separate TinyMCE editor style, but WordPress does
 not need this front-end, so you don't want to add this to the entry key. To
