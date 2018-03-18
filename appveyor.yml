@@ -1,15 +1,9 @@
 image: Visual Studio 2017
 clone_depth: 50
-services: mysql
 
 environment:
   PHP_CHOCO_VERSION: 7.2
   PHP_CACHE_DIR: C:\tools\php
-  MYSQL_DATABASE: wordpress_test
-  MYSQL_HOST: localhost
-  MYSQL_USER: root
-  MYSQL_PASSWORD: Password12!
-  MYSQL_PATH: C:\Program Files\MySQL\MySQL Server 5.7
   matrix:
     - nodejs_version: 8
     - nodejs_version: 9
@@ -36,7 +30,6 @@ install:
   - IF %PHP%==0 cinst php -y --version %PHP_CHOCO_VERSION%  --params "/InstallDir:%PHP_CACHE_DIR%"
   - IF %PHP%==0 cinst composer -y --ia "/DEV=%PHP_CACHE_DIR%"
   - IF %PHP%==0 (composer --version) ELSE (composer self-update)
-  - SET PATH=%MYSQL_PATH%\bin;%PATH%
 
 build: off
 
