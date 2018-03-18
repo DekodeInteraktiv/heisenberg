@@ -93,7 +93,7 @@ composer install
 ./vendor/bin/phpcs
 
 # Unit test icon file
-bash tasks/install-wp-tests.sh wordpress_test root 'MySecretPassword1' localhost latest
+bash tasks/install-wp-tests.sh wordpress_test root '' localhost latest
 ./vendor/bin/phpunit
 
 # Cleanup
