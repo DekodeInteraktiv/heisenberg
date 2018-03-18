@@ -1,13 +1,23 @@
 image: Visual Studio 2017
+clone_depth: 50
+services: mysql
 
 environment:
+  PHP_CHOCO_VERSION: 7.2
+  PHP_CACHE_DIR: C:\tools\php
   matrix:
     - nodejs_version: 8
     - nodejs_version: 9
 
-services: mysql
+cache:
+  - '%PHP_CACHE_DIR% -> appveyor.yml'
 
-clone_depth: 50
+init:
+  - SET PATH=%PHP_CACHE_DIR%;%PATH%
+  - SET COMPOSER_CACHE_DIR=%PHP_CACHE_DIR%
+  - SET COMPOSER_NO_INTERACTION=1
+  - SET PHP=0
+  - SET ANSICON=121x90 (121x90)
 
 matrix:
   fast_finish: true
@@ -17,7 +27,10 @@ platform:
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
-  - choco install php
+  - IF EXIST %PHP_CACHE_DIR% (SET PHP=1)
+  - IF %PHP%==0 cinst composer -y --ia "/DEV=%PHP_CACHE_DIR%"
+  - php -v
+  - IF %PHP%==0 (composer --version) ELSE (composer self-update)
 
 build: off
 
