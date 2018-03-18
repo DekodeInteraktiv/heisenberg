@@ -37,5 +37,6 @@ module.exports = ( port, devPort ) => {
 		codeSync: false,
 		timestamps: false,
 		logLevel: 'silent',
+		open: false,
 	};
 };

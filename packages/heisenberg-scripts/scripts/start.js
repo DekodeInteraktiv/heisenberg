@@ -87,6 +87,7 @@ async function boot() {
 	const compiler = createWebpackCompiler(
 		port,
 		devPort,
+		urlsBS.localUrlForBrowser,
 		config,
 		function onReady( showInstructions ) {
 			if ( ! showInstructions ) {
