@@ -16,6 +16,17 @@ const webpack = require( 'webpack' );
  * Internal dependencies
  */
 const paths = require( './paths' );
+const getClientEnvironment = require( './env' );
+
+/**
+ * Get client environment variables to inject into our build.
+ */
+const env = getClientEnvironment();
+
+// Assert this just to be safe.
+if ( env['process.env'].NODE_ENV !== '"production"' ) {
+	throw new Error( 'Production builds must have NODE_ENV=production.' );
+}
 
 /**
  * Variables
@@ -149,8 +160,8 @@ module.exports = ( options ) => {
 				syntax: 'scss',
 			}),
 			// Makes some environment variables available to the JS code, for example:
-			// if (process.env.NODE_ENV === 'development') { ... }.
-			new webpack.DefinePlugin( JSON.stringify( process.env.NODE_ENV || 'production' ) ),
+			// if (process.env.NODE_ENV === 'production') { ... }.
+			new webpack.DefinePlugin( env ),
 			// Minify the code.
 			new UglifyJsPlugin({
 				uglifyOptions: {
