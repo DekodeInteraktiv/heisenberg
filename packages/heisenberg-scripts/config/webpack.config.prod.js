@@ -16,7 +16,7 @@ const webpack = require( 'webpack' );
  * Internal dependencies
  */
 const paths = require( './paths' );
-const getClientEnvironment = require( './env' );
+const getClientEnvironment = require( './env' ).getClientEnvironment;
 
 /**
  * Get client environment variables to inject into our build.

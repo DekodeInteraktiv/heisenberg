@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-const getProxy = require( './env' );
+const getProxy = require( './env' ).getProxy;
 const removeIfManifestFile = require( './utils/manifest-remove-file' );
 
 /**

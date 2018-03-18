@@ -36,7 +36,7 @@ const WebpackDevServer = require( 'webpack-dev-server' );
  */
 const config = require( '../config/webpack.config.dev' );
 const devServerConfig = require( '../config/webpackDevServer.config' );
-const getProxy = require( '../config/env' );
+const getProxy = require( '../config/env' ).getProxy;
 
 /**
  * Variables
