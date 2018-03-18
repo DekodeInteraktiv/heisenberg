@@ -10,6 +10,10 @@ environment:
 
 cache:
   - '%PHP_CACHE_DIR% -> appveyor.yml'
+  - node_modules -> yarn.lock
+  - packages\heisenberg-scripts\node_modules -> yarn.lock
+  - packages\eslint-plugin-heisenberg\node_modules -> yarn.lock
+  - packages\stylelint-config-heisenberg\node_modules -> yarn.lock
 
 init:
   - SET PATH=%PHP_CACHE_DIR%;%PATH%
