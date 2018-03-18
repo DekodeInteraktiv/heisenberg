@@ -17,6 +17,7 @@ platform:
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
+  - choco install php
 
 build: off
 
