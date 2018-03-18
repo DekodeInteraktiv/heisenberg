@@ -93,8 +93,10 @@ composer install
 ./vendor/bin/phpcs
 
 # Unit test icon file
-bash tasks/install-wp-tests.sh wordpress_test root '' localhost latest
-./vendor/bin/phpunit
+if [[ "$TRAVIS" == "true" ]] ; then
+  bash tasks/install-wp-tests.sh wordpress_test root '' localhost latest
+  ./vendor/bin/phpunit
+fi
 
 # Cleanup
 cleanup
