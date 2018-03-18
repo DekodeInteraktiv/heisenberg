@@ -1,7 +1,7 @@
 /**
  * Internal dependencies
  */
-const paths = require( './paths' );
+const getProxy = require( './env' );
 const removeIfManifestFile = require( './utils/manifest-remove-file' );
 
 /**
@@ -12,7 +12,7 @@ module.exports = ( port, devPort ) => {
 		host: 'localhost',
 		port,
 		proxy: {
-			target: require( paths.appPackageJson ).proxy,
+			target: getProxy(),
 		},
 		rewriteRules: [{
 			// Remove all manifest js files

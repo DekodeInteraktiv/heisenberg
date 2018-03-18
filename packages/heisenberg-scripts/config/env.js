@@ -1,5 +1,9 @@
 'use strict';
 
+/**
+ * External dependencies
+ */
+const _ = require( 'lodash' );
 const fs = require( 'fs' );
 const paths = require( './paths' );
 
@@ -72,3 +76,11 @@ function getClientEnvironment() {
 }
 
 module.exports = getClientEnvironment;
+
+/**
+ * Get env proxy
+ */
+function getProxy() {
+	return process.env.HEISENBERG_PROXY || _.trim( require( paths.appPackageJson ).proxy );
+}
+module.exports = getProxy;
