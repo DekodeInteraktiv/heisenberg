@@ -38,5 +38,19 @@ module.exports = ( port, devPort ) => {
 		timestamps: false,
 		logLevel: 'silent',
 		open: false,
+		notify: {
+			styles: {
+				backgroundColor: '#000',
+				borderBottomLeftRadius: 0,
+				bottom: 0,
+				fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"',
+				fontSize: '14px',
+				fontWeight: 400,
+				left: 0,
+				padding: '5px',
+				right: 'auto',
+				top: 'auto',
+			},
+		},
 	};
 };
