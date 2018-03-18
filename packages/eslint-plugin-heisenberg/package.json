@@ -1,6 +1,6 @@
 {
   "name": "eslint-plugin-heisenberg",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "ESLint configuration used by Heisenberg",
   "repository": "DekodeInteraktiv/heisenberg",
   "license": "GPL-3.0",
