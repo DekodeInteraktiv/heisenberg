@@ -12,6 +12,12 @@ const WatchMissingNodeModulesPlugin = require( 'react-dev-utils/WatchMissingNode
  * Internal dependencies
  */
 const paths = require( './paths' );
+const getClientEnvironment = require( './env' );
+
+/**
+ * Get client environment variables to inject into our build.
+ */
+const env = getClientEnvironment();
 
 /**
  * Entries
@@ -149,7 +155,7 @@ module.exports = {
 	plugins: [
 		// Makes some environment variables available to the JS code, for example:
 		// if (process.env.NODE_ENV === 'development') { ... }.
-		new webpack.DefinePlugin( JSON.stringify( process.env.NODE_ENV || 'development' ) ),
+		new webpack.DefinePlugin( env ),
 		// This is necessary to emit hot updates (currently CSS only):
 		new webpack.HotModuleReplacementPlugin(),
 		// Watcher doesn't work well if you mistype casing in a path so we use

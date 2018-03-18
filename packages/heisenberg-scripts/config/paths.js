@@ -21,6 +21,7 @@ function resolveApp( relativePath ) {
 }
 
 module.exports = {
+	dotenv: resolveApp( '.env' ),
 	appBuild: resolveApp( 'dist' ),
 	appEslintConfig: resolveApp( '.eslintrc.js' ),
 	appImages: resolveApp( 'src/images' ),
