@@ -7,6 +7,8 @@ cache:
   directories:
   - node_modules
   - packages/heisenberg-scripts/node_modules
+  - packages/eslint-plugin-heisenberg/node_modules
+  - packages/stylelint-config-heisenberg/node_modules
   - vendor
 
 install: true
