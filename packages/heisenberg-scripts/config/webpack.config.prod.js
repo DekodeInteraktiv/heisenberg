@@ -24,7 +24,7 @@ const getClientEnvironment = require( './env' );
 const env = getClientEnvironment();
 
 // Assert this just to be safe.
-if ( env['process.env'].NODE_ENV !== '"production"' ) {
+if ( '"production"' !== env['process.env'].NODE_ENV ) {
 	throw new Error( 'Production builds must have NODE_ENV=production.' );
 }
 

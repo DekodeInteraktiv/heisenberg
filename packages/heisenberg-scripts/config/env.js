@@ -1,7 +1,6 @@
 'use strict';
 
 const fs = require( 'fs' );
-const path = require( 'path' );
 const paths = require( './paths' );
 
 // Make sure that including paths.js after env.js will read .env variables.
@@ -21,7 +20,7 @@ var dotenvFiles = [
 	// Don't include `.env.local` for `test` environment
 	// since normally you expect tests to produce the same
 	// results for everyone
-	NODE_ENV !== 'test' && `${paths.dotenv}.local`,
+	'test' !== NODE_ENV && `${paths.dotenv}.local`,
 	paths.dotenv,
 ].filter( Boolean );
 
