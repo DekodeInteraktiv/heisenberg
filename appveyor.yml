@@ -14,6 +14,7 @@ cache:
   - packages\heisenberg-scripts\node_modules -> yarn.lock
   - packages\eslint-plugin-heisenberg\node_modules -> yarn.lock
   - packages\stylelint-config-heisenberg\node_modules -> yarn.lock
+  - vendor -> composer.lock
 
 init:
   - SET PATH=%PHP_CACHE_DIR%;%PATH%
