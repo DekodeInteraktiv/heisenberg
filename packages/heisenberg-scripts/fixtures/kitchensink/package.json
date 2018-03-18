@@ -1,0 +1,15 @@
+{
+  "private": true,
+  "proxy": "http://heisenberg.test",
+  "scripts": {
+    "build": "node ../../bin/heisenberg-scripts.js build",
+    "icons": "node ../../bin/heisenberg-scripts.js icons",
+    "start": "node ../../bin/heisenberg-scripts.js start"
+  },
+  "entry": {
+    "main": [
+      "./src/main.js",
+      "./src/main.scss"
+    ]
+  }
+}
