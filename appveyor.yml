@@ -31,7 +31,6 @@ install:
   - IF EXIST %PHP_CACHE_DIR% (SET PHP=1)
   - IF %PHP%==0 cinst php -y --version %PHP_CHOCO_VERSION%  --params "/InstallDir:%PHP_CACHE_DIR%"
   - IF %PHP%==0 cinst composer -y --ia "/DEV=%PHP_CACHE_DIR%"
-  - php -v
   - IF %PHP%==0 (composer --version) ELSE (composer self-update)
   - SET PATH=%MYSQL_PATH%\bin;%PATH%
 
@@ -40,4 +39,5 @@ build: off
 test_script:
   - node --version
   - npm --version
+  - php -v
   - bash tasks/e2e.sh
