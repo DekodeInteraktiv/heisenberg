@@ -10,4 +10,5 @@ yarn-debug.log*
 yarn-error.log*
 /.changelog
 /dist
+/packages/heisenberg-scripts/fixtures/kitchensink/dist
 /vendor
