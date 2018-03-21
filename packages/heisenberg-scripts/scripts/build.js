@@ -109,7 +109,9 @@ async function build() {
 
 	// Remove all content but keep the directory so that
 	// if you're in it, you don't end up in Trash
-	fs.emptyDirSync( destDir );
+	fs.emptyDirSync( `${destDir}/js` );
+	fs.emptyDirSync( `${destDir}/css` );
+	fs.emptyDirSync( `${destDir}/static` );
 
 	// Copy images folder
 	copyImagesFolder( destDir );
