@@ -1,3 +1,13 @@
+## 0.3.2 (2018-03-21)
+
+#### New Feature
+*   `heisenberg-scripts`
+    *   [#79](https://github.com/DekodeInteraktiv/heisenberg/pull/79)  Add option to change output dir. ([@walbo](https://github.com/walbo))
+
+#### Dependencies
+*   `heisenberg-scripts`
+    *   [#77](https://github.com/DekodeInteraktiv/heisenberg/pull/77) Update dependency postcss-loader to v2.1.3. ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## 0.3.1 (2018-03-19)
 
 #### New Feature
