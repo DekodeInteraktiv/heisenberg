@@ -1,0 +1,21 @@
+{
+  "name": "heisenberg-dev-utils",
+  "version": "0.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DekodeInteraktiv/heisenberg.git"
+  },
+  "license": "GPL-3.0",
+  "engines": {
+    "node": ">=8"
+  },
+  "bugs": {
+    "url": "https://github.com/DekodeInteraktiv/heisenberg/issues"
+  },
+  "files": [
+    "mixins.scss",
+    "mixins/clearfix.scss",
+    "prefers-reduced-motion.js"
+  ],
+  "dependencies": {}
+}
