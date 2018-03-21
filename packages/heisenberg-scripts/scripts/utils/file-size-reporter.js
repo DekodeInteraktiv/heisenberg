@@ -77,10 +77,10 @@ function printFileSizesAfterBuild( webpackStats, previousSizeMap, dest ) {
 			console.log();
 
 			switch (asset.folder) {
-				case 'dist/css':
+				case `${dest}/css`:
 					console.log( chalk.cyan( '  Stylesheets:  ' ) );
 					break;
-				case 'dist/js':
+				case `${dest}/js`:
 					console.log( chalk.cyan( '  JavaScripts:  ' ) );
 					break;
 			}
