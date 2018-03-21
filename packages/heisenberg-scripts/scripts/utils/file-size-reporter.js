@@ -37,7 +37,7 @@ function removeFileNameHash( buildFolder, fileName ) {
 }
 
 // Prints a detailed summary of build files.
-function printFileSizesAfterBuild( webpackStats, previousSizeMap ) {
+function printFileSizesAfterBuild( webpackStats, previousSizeMap, dest ) {
 	const root = previousSizeMap.root;
 	const sizes = previousSizeMap.sizes;
 
@@ -52,7 +52,7 @@ function printFileSizesAfterBuild( webpackStats, previousSizeMap ) {
 
 			return {
 				chunkNames: asset.chunkNames,
-				folder: path.join( 'dist', path.dirname( asset.name ) ),
+				folder: path.join( dest, path.dirname( asset.name ) ),
 				name: path.basename( asset.name ),
 				size,
 				sizeLabel: filesize( size ) + ( difference ? ` (${difference})` : '' ),

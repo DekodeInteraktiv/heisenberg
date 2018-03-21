@@ -11,9 +11,9 @@ const paths = require( '../../config/paths' );
 /**
  * Function
  */
-module.exports = () => {
+module.exports = ( dest ) => {
 	if ( fs.existsSync( paths.appImages ) ) {
-		fs.copySync( paths.appImages, `${paths.appBuild}/images`, {
+		fs.copySync( paths.appImages, `${dest}/images`, {
 			dereference: true,
 		});
 	}

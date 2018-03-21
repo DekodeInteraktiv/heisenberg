@@ -47,12 +47,12 @@ const watchFiles = -1 !== argv.indexOf( '--watch' );
 /**
  * Print success message and stats
  */
-function printSuccess( stats, previousFileSizes ) {
+function printSuccess( stats, previousFileSizes, dest ) {
 	console.log( chalk.green( 'Compiled successfully.' ) );
 	console.log();
 
 	console.log( 'File sizes after gzip:' );
-	printFileSizesAfterBuild( stats, previousFileSizes );
+	printFileSizesAfterBuild( stats, previousFileSizes, dest );
 	console.log();
 }
 
@@ -84,7 +84,7 @@ function hasErrors( err, stats ) {
 /**
  * Create the production build
  */
-async function build( previousFileSizes ) {
+async function build() {
 	console.log( 'Creating an optimized production build...' );
 
 	const webpackOptions = await getHeisenbergConfig( 'build' );
@@ -93,11 +93,26 @@ async function build( previousFileSizes ) {
 	// WebpackConfigDefaults
 	const options = Object.assign( {
 		commonsChunkPlugin: true,
+		dest: 'dist',
 		hashFilenames: true,
 		manifest: true,
 	}, webpackOptions );
 
+	// Add stylelint config file path.
 	options.stylelintConfigFile = stylelintConfig ? stylelintConfig.filepath : path.resolve( __dirname, '../package.json' );
+
+	// Dest folder
+	const distFolder = paths.resolveApp( options.dest );
+
+	// Find previous file sizes
+	const previousFileSizes = await measureFileSizesBeforeBuild( distFolder );
+
+	// Remove all content but keep the directory so that
+	// if you're in it, you don't end up in Trash
+	fs.emptyDirSync( distFolder );
+
+	// Copy images folder
+	copyImagesFolder( distFolder );
 
 	let compiler;
 	try {
@@ -113,7 +128,7 @@ async function build( previousFileSizes ) {
 				return;
 			}
 
-			printSuccess( stats, previousFileSizes );
+			printSuccess( stats, previousFileSizes, options.dest );
 			console.log( 'Watching files...' );
 		});
 	} else {
@@ -122,21 +137,10 @@ async function build( previousFileSizes ) {
 				process.exit( 1 );
 			}
 
-			printSuccess( stats, previousFileSizes );
+			printSuccess( stats, previousFileSizes, options.dest );
 		});
 	}
 }
 
-// First, read the current file sizes in build directory.
-// This lets us display how much they changed later.
-measureFileSizesBeforeBuild( paths.appBuild ).then( previousFileSizes => {
-	// Remove all content but keep the directory so that
-	// if you're in it, you don't end up in Trash
-	fs.emptyDirSync( paths.appBuild );
-
-	// Start the webpack build
-	build( previousFileSizes );
-
-	// Copy images folder
-	copyImagesFolder();
-});
+// Start the webpack build
+build();
