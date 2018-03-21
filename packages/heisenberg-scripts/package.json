@@ -1,6 +1,6 @@
 {
   "name": "heisenberg-scripts",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DekodeInteraktiv/heisenberg.git"
@@ -62,7 +62,7 @@
     "strip-ansi": "4.0.0",
     "style-loader": "0.20.3",
     "stylelint": "9.1.3",
-    "stylelint-config-heisenberg": "^0.1.3",
+    "stylelint-config-heisenberg": "^0.1.4",
     "stylelint-webpack-plugin": "0.10.3",
     "svgo": "1.0.5",
     "uglifyjs-webpack-plugin": "1.2.4",

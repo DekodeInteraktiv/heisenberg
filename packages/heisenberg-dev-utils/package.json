@@ -1,6 +1,6 @@
 {
   "name": "heisenberg-dev-utils",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/DekodeInteraktiv/heisenberg.git"
@@ -16,6 +16,5 @@
     "mixins.scss",
     "mixins/clearfix.scss",
     "prefers-reduced-motion.js"
-  ],
-  "dependencies": {}
+  ]
 }
