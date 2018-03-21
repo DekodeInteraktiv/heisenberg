@@ -1,3 +1,19 @@
+# Changelog
+
+## 0.3.3 (2018-03-21)
+
+#### New Feature
+*   `heisenberg-dev-utils`
+    *   [#82](https://github.com/DekodeInteraktiv/heisenberg/pull/82) Add `heisenberg-dev-utils` package. ([@walbo](https://github.com/walbo))
+
+#### Bug Fix
+*   `heisenberg-scripts`
+    *   [#80](https://github.com/DekodeInteraktiv/heisenberg/pull/80) Use the dest folder defined in options when comparing folders. ([@walbo](https://github.com/walbo))
+
+#### Dependencies
+*   `stylelint-config-heisenberg`
+    *   [#81](https://github.com/DekodeInteraktiv/heisenberg/pull/81) Update dependency jest to v22.4.3. ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## 0.3.2 (2018-03-21)
 
 #### New Feature
