@@ -101,18 +101,18 @@ async function build() {
 	// Add stylelint config file path.
 	options.stylelintConfigFile = stylelintConfig ? stylelintConfig.filepath : path.resolve( __dirname, '../package.json' );
 
-	// Dest folder
-	const distFolder = paths.resolveApp( options.dest );
+	// Destination dir
+	const destDir = paths.resolveApp( options.dest );
 
 	// Find previous file sizes
-	const previousFileSizes = await measureFileSizesBeforeBuild( distFolder );
+	const previousFileSizes = await measureFileSizesBeforeBuild( destDir );
 
 	// Remove all content but keep the directory so that
 	// if you're in it, you don't end up in Trash
-	fs.emptyDirSync( distFolder );
+	fs.emptyDirSync( destDir );
 
 	// Copy images folder
-	copyImagesFolder( distFolder );
+	copyImagesFolder( destDir );
 
 	let compiler;
 	try {
