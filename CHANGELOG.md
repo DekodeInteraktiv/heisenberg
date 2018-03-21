@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.4 (2018-03-21)
+
+#### Enhancement
+*   `heisenberg-scripts`
+    *   [#83](https://github.com/DekodeInteraktiv/heisenberg/pull/83) Only empty heisenberg created folders. ([@walbo](https://github.com/walbo))
+
 ## 0.3.3 (2018-03-21)
 
 #### New Feature
