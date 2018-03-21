@@ -48,6 +48,7 @@ Build determine how files should be build.
 ```json
 "build": {
 	"commonsChunkPlugin": true,
+	"dest": "dist",
 	"hashFilenames": true,
 	"manifest": true,
 }
