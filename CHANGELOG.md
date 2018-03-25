@@ -1,5 +1,19 @@
 # Changelog
 
+## 0.3.5 (2018-03-25)
+
+#### New Feature
+*   `heisenberg-dev-utils`
+    *   [#89](https://github.com/DekodeInteraktiv/heisenberg/pull/89) Add screen reader text scss helper. ([@walbo](https://github.com/walbo))
+
+#### Dependencies
+*   `heisenberg-scripts`
+    *   [#88](https://github.com/DekodeInteraktiv/heisenberg/pull/88) Update dependency filesize to v3.6.1. ([@renovate[bot]](https://github.com/apps/renovate))
+    *   [#87](https://github.com/DekodeInteraktiv/heisenberg/pull/87) Update dependency node-sass to v4.8.3. ([@renovate[bot]](https://github.com/apps/renovate))
+    *   [#84](https://github.com/DekodeInteraktiv/heisenberg/pull/84) Update dependency autoprefixer to v8.2.0. ([@renovate[bot]](https://github.com/apps/renovate))
+*   `eslint-plugin-heisenberg`, `heisenberg-scripts`
+    *   [#85](https://github.com/DekodeInteraktiv/heisenberg/pull/85) Update dependency eslint to v4.19.1. ([@renovate[bot]](https://github.com/apps/renovate))
+
 ## 0.3.4 (2018-03-21)
 
 #### Enhancement
