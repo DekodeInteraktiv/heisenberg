@@ -15,6 +15,7 @@
   "files": [
     "mixins.scss",
     "mixins/clearfix.scss",
-    "prefers-reduced-motion.js"
+    "prefers-reduced-motion.js",
+    "screen-reader-text.scss"
   ]
 }
