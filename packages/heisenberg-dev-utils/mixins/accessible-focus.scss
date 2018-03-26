@@ -1,0 +1,11 @@
+/**
+ * Accessible Focus helper mixin
+ */
+
+@mixin accessibleFocus() {
+	.accessible-focus & {
+		&:focus {
+			@content;
+		}
+	}
+}

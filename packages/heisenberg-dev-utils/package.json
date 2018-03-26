@@ -13,8 +13,10 @@
     "url": "https://github.com/DekodeInteraktiv/heisenberg/issues"
   },
   "files": [
+    "accessible-focus.js",
     "keycodes.js",
     "mixins.scss",
+    "mixins/accessible-focus.scss",
     "mixins/clearfix.scss",
     "prefers-reduced-motion.js",
     "screen-reader-text.scss"
