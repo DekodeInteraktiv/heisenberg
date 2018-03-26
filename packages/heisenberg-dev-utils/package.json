@@ -13,6 +13,7 @@
     "url": "https://github.com/DekodeInteraktiv/heisenberg/issues"
   },
   "files": [
+    "keycodes.js",
     "mixins.scss",
     "mixins/clearfix.scss",
     "prefers-reduced-motion.js",
