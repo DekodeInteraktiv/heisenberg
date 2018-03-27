@@ -112,16 +112,16 @@
         },
         {
             "name": "dekodeinteraktiv/coding-standards",
-            "version": "0.3.0",
+            "version": "0.3.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/DekodeInteraktiv/coding-standards.git",
-                "reference": "421dee3c07a4961896695302a7c8f825c90a42a0"
+                "reference": "89e9a14ffbeb632fbe4a42a5a72648e08aeda573"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/DekodeInteraktiv/coding-standards/zipball/421dee3c07a4961896695302a7c8f825c90a42a0",
-                "reference": "421dee3c07a4961896695302a7c8f825c90a42a0",
+                "url": "https://api.github.com/repos/DekodeInteraktiv/coding-standards/zipball/89e9a14ffbeb632fbe4a42a5a72648e08aeda573",
+                "reference": "89e9a14ffbeb632fbe4a42a5a72648e08aeda573",
                 "shasum": ""
             },
             "require": {
@@ -136,7 +136,7 @@
                 "MIT"
             ],
             "description": "Dekode Coding Standards",
-            "time": "2018-03-15T13:11:43+00:00"
+            "time": "2018-03-23T08:47:02+00:00"
         },
         {
             "name": "doctrine/instantiator",
