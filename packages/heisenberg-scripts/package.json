@@ -63,7 +63,7 @@
     "style-loader": "0.20.3",
     "stylelint": "9.2.0",
     "stylelint-config-heisenberg": "^0.1.4",
-    "stylelint-webpack-plugin": "0.10.3",
+    "stylelint-webpack-plugin": "0.10.4",
     "svgo": "1.0.5",
     "uglifyjs-webpack-plugin": "1.2.4",
     "validator": "9.4.1",
