@@ -9,7 +9,7 @@
   "devDependencies": {
     "eslint": "4.19.1",
     "eslint-plugin-jest": "21.15.0",
-    "lerna": "2.9.0",
+    "lerna": "2.9.1",
     "lerna-changelog": "0.7.0",
     "npm-run-all": "4.1.2",
     "remark-cli": "5.0.0",
