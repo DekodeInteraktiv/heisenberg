@@ -32,9 +32,9 @@
     "stylelint": "^9.0.0"
   },
   "dependencies": {
-    "stylelint-config-recommended": "^2.1.0",
-    "stylelint-order": "^0.8.1",
-    "stylelint-scss": "^3.0.0"
+    "stylelint-config-recommended": "2.1.0",
+    "stylelint-order": "0.8.1",
+    "stylelint-scss": "3.0.0"
   },
   "devDependencies": {
     "jest": "22.4.3",
