@@ -95,7 +95,10 @@ module.exports = function createWebpackCompiler( port, devPort, browserUrl, conf
 				openBrowser( browserUrl );
 			} );
 
-			browserSync.watch( '**/*.php', event => {
+			browserSync.watch( '**/*.php', {
+				reloadDelay: 1000,
+				debounceDelay: 1000,
+			}, event => {
 				if ( 'change' === event ) {
 					browserSync.reload();
 				}
