@@ -97,7 +97,7 @@ module.exports = function createWebpackCompiler( port, devPort, browserUrl, conf
 
 			browserSync.watch( '**/*.php', event => {
 				if ( 'change' === event ) {
-					browserSync.reload();
+					browserSync.sockets.emit( 'heisenberg-reload' );
 				}
 			});
 

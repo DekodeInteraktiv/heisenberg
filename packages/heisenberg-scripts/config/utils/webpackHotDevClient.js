@@ -118,3 +118,16 @@ connection.onmessage = function( event ) {
 			// Do nothing.
 	}
 };
+
+/**
+ * BrowserSync don't reload when we want it to. Lets create our own reload event
+ */
+var checkIfBrowerSyncExists = setInterval( function() {
+	if ( 'undefined' !== typeof window.___browserSync___ ) {
+		window.___browserSync___.socket.on( 'heisenberg-reload', function() {
+			window.location.reload();
+		} );
+
+		clearInterval( checkIfBrowerSyncExists );
+	}
+}, 250 );
