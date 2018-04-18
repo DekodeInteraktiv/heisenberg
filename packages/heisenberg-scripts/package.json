@@ -60,7 +60,7 @@
     "sass-loader": "7.0.1",
     "sockjs-client": "1.1.4",
     "strip-ansi": "4.0.0",
-    "style-loader": "0.20.3",
+    "style-loader": "0.21.0",
     "stylelint": "9.2.0",
     "stylelint-config-heisenberg": "^0.1.4",
     "stylelint-webpack-plugin": "0.10.4",
