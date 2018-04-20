@@ -31,7 +31,7 @@
     "babel-loader": "7.1.4",
     "babel-preset-env": "1.6.1",
     "babel-preset-flow": "6.23.0",
-    "browser-sync": "2.23.6",
+    "browser-sync": "2.23.7",
     "cache-loader": "1.2.2",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
     "chalk": "2.4.0",
