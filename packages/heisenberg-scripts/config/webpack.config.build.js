@@ -23,16 +23,19 @@ const getClientEnvironment = require( './env' ).getClientEnvironment;
  */
 const env = getClientEnvironment();
 
-// Assert this just to be safe.
-if ( '"production"' !== env['process.env'].NODE_ENV ) {
-	throw new Error( 'Production builds must have NODE_ENV=production.' );
-}
-
 /**
  * Variables
  */
 const argv = process.argv.slice( 2 );
 const cacheBusting = 0 > argv.indexOf( '--no-filename-hashes' );
+const watchFiles = -1 !== argv.indexOf( '--watch' );
+
+// Assert this just to be safe.
+if ( watchFiles && '"development"' !== env['process.env'].NODE_ENV ) {
+	throw new Error( 'When watching builds you must have NODE_ENV=development.' );
+} else if ( ! watchFiles && '"production"' !== env['process.env'].NODE_ENV ) {
+	throw new Error( 'Production builds must have NODE_ENV=production.' );
+}
 
 /**
  * Entries
@@ -165,17 +168,6 @@ module.exports = ( options ) => {
 			// Makes some environment variables available to the JS code, for example:
 			// if (process.env.NODE_ENV === 'production') { ... }.
 			new webpack.DefinePlugin( env ),
-			// Minify the code.
-			new UglifyJsPlugin({
-				uglifyOptions: {
-					compress: {
-						warnings: false,
-					},
-					output: {
-						comments: false,
-					},
-				},
-			}),
 			// Note: this won't work without ExtractTextPlugin.extract(..) in `loaders`.
 			new ExtractTextPlugin({
 				filename: options.hashFilenames ? 'css/[name].[contenthash:8].css' : 'css/[name].css',
@@ -190,6 +182,24 @@ module.exports = ( options ) => {
 			tls: 'empty',
 		},
 	};
+
+	if ( watchFiles ) {
+		config.devtool = 'cheap-module-source-map';
+	} else {
+		config.plugins.push(
+			// Minify the code.
+			new UglifyJsPlugin({
+				uglifyOptions: {
+					compress: {
+						warnings: false,
+					},
+					output: {
+						comments: false,
+					},
+				},
+			})
+		);
+	}
 
 	/**
 	 * Generate a manifest file which contains a mapping of all asset filenames
