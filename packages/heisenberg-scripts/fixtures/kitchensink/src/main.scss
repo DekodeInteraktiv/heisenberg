@@ -1,3 +1,10 @@
 /**
  * Main kitchensink SCSS file
  */
+body {
+	margin: 0;
+
+	.test {
+		margin: 0 auto;
+	}
+}

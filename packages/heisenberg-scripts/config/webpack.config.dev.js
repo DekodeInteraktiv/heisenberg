@@ -111,7 +111,8 @@ module.exports = {
 					{
 						loader: 'babel-loader',
 						options: {
-							presets: ['env', 'babel-preset-flow'],
+							presets: ['@babel/preset-env', '@babel/preset-flow'],
+							plugins: ['@babel/plugin-proposal-object-rest-spread'],
 							// This is a feature of `babel-loader` for webpack (not Babel itself).
 							// It enables caching results in ./node_modules/.cache/babel-loader/
 							// directory for faster rebuilds.
