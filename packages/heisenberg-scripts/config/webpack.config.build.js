@@ -123,7 +123,8 @@ module.exports = ( options ) => {
 						{
 							loader: 'babel-loader',
 							options: {
-								presets: ['env', 'babel-preset-flow'],
+								presets: ['@babel/preset-env', '@babel/preset-flow'],
+								plugins: ['@babel/plugin-proposal-object-rest-spread'],
 							},
 						},
 					],
