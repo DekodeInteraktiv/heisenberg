@@ -19,6 +19,7 @@
     "mixins/accessible-focus.scss",
     "mixins/clearfix.scss",
     "prefers-reduced-motion.js",
-    "screen-reader-text.scss"
+    "screen-reader-text.scss",
+    "skip-link.js"
   ]
 }
