@@ -1,5 +1,17 @@
 # Changelog
 
+## heisenberg-dev-utils@0.0.4 (2018-04-29)
+
+#### New Feature
+*   [#133](https://github.com/DekodeInteraktiv/heisenberg/pull/133) Add skip link helper for IE.
+
+
+## heisenberg-scripts@0.3.8 (2018-04-29)
+
+#### Dependencies
+*   [#132](https://github.com/DekodeInteraktiv/heisenberg/pull/132) Update dependency postcss-flexbugs-fixes to v3.3.1.
+
+
 ## eslint-plugin-heisenberg@0.1.4 (2018-04-28)
 
 #### Dependencies
