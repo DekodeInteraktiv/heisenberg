@@ -15,7 +15,7 @@
     "remark-cli": "5.0.0",
     "remark-preset-lint-consistent": "2.0.1",
     "remark-preset-lint-recommended": "3.0.1",
-    "stylelint": "9.2.0"
+    "stylelint": "9.2.1"
   },
   "scripts": {
     "build": "node packages/heisenberg-scripts/bin/heisenberg-scripts.js build",
