@@ -25,10 +25,10 @@
     "extends": "stylelint-config-heisenberg"
   },
   "dependencies": {
-    "@babel/core": "7.0.0-beta.48",
-    "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.48",
-    "@babel/preset-env": "7.0.0-beta.48",
-    "@babel/preset-flow": "7.0.0-beta.48",
+    "@babel/core": "7.0.0-beta.49",
+    "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.49",
+    "@babel/preset-env": "7.0.0-beta.49",
+    "@babel/preset-flow": "7.0.0-beta.49",
     "autoprefixer": "8.5.1",
     "babel-eslint": "8.2.3",
     "babel-loader": "8.0.0-beta.3",
