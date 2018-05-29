@@ -20,6 +20,7 @@
     "mixins/clearfix.scss",
     "prefers-reduced-motion.js",
     "screen-reader-text.scss",
-    "skip-link.js"
+    "skip-link.js",
+    "skip-link.scss"
   ]
 }
