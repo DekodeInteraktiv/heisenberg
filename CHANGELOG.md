@@ -1,5 +1,10 @@
 # Changelog
 
+## heisenberg-dev-utils@0.0.6 (2018-05-29)
+
+#### Bug Fix
+*   [#168](https://github.com/DekodeInteraktiv/heisenberg/pull/168) Add skip link scss file to package so it will be installed.
+
 ## heisenberg-dev-utils@0.0.5 (2018-05-29)
 
 #### New Feature
