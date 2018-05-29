@@ -1,0 +1,25 @@
+/**
+ * Skip link
+ */
+
+.skip-link {
+	background-color: #000;
+	color: #fff;
+	display: block;
+	font-size: 18px;
+	font-weight: 700;
+	outline: 0;
+	padding: 9px 23px;
+	text-decoration: none;
+
+	&:focus {
+		clip: auto;
+		clip-path: none;
+		height: auto;
+		left: 6px;
+		margin: 0;
+		top: 7px;
+		width: auto;
+		z-index: 100000;
+	}
+}
