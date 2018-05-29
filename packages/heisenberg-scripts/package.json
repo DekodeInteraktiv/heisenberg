@@ -59,7 +59,7 @@
     "react-dev-utils": "5.0.1",
     "recursive-readdir": "2.2.2",
     "sass-loader": "7.0.1",
-    "sockjs-client": "1.1.4",
+    "sockjs-client": "1.1.5",
     "strip-ansi": "4.0.0",
     "style-loader": "0.21.0",
     "stylelint": "9.2.1",
