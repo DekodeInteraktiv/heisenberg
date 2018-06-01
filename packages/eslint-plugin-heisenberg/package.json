@@ -19,7 +19,7 @@
     "eslint-find-rules": "3.2.3"
   },
   "dependencies": {
-    "eslint-plugin-flowtype": "2.48.0",
+    "eslint-plugin-flowtype": "2.49.0",
     "eslint-plugin-import": "2.12.0",
     "eslint-plugin-jsdoc": "3.7.1",
     "merge": "1.2.0"
