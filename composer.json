@@ -6,6 +6,6 @@
   },
   "require-dev": {
     "dekodeinteraktiv/coding-standards": "^0.3.0",
-    "phpunit/phpunit": "^6"
+    "phpunit/phpunit": "^7"
   }
 }
