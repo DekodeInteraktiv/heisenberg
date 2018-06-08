@@ -1,6 +1,6 @@
 {
   "name": "stylelint-config-heisenberg",
-  "version": "0.1.6",
+  "version": "0.1.7",
   "description": "Stylelint configuration used by Heisenberg",
   "repository": "DekodeInteraktiv/heisenberg",
   "license": "GPL-3.0",
