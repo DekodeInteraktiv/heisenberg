@@ -21,6 +21,7 @@
     "prefers-reduced-motion.js",
     "screen-reader-text.scss",
     "skip-link.js",
-    "skip-link.scss"
+    "skip-link.scss",
+    "system-fonts.scss"
   ]
 }
