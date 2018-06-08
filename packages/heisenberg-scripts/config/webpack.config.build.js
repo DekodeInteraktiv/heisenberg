@@ -216,10 +216,10 @@ module.exports = ( options ) => {
 
 	if ( options.commonsChunkPlugin ) {
 		config.plugins.push(
-			new webpack.optimize.CommonsChunkPlugin({
+			new webpack.optimize.CommonsChunkPlugin( Object.assign( {
 				name: 'commons',
 				filename: options.hashFilenames ? 'js/commons.[chunkhash:8].js' : 'js/commons.js',
-			})
+			}, options.commonsChunkPluginOptions ) )
 		);
 	}
 
