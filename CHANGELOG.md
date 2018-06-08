@@ -1,5 +1,34 @@
 # Changelog
 
+## heisenberg-dev-utils@0.0.6 (2018-06-08)
+
+#### New Feature
+*   [#188](https://github.com/DekodeInteraktiv/heisenberg/pull/188) Add system font stacks.
+
+## eslint-plugin-heisenberg@0.1.6 (2018-06-08)
+
+#### Dependencies
+*   [#176](https://github.com/DekodeInteraktiv/heisenberg/pull/176) Update dependency eslint-plugin-flowtype to v2.49.3.
+
+## stylelint-config-heisenberg@0.1.7 (2018-06-08)
+
+#### Dependencies
+*   [#172](https://github.com/DekodeInteraktiv/heisenberg/pull/172) Update dependency jest to v23.1.0.
+
+## heisenberg-scripts@0.3.10
+
+#### New Feature
+*   [#187](https://github.com/DekodeInteraktiv/heisenberg/pull/187) Add option to change commons chunk plugin options.
+
+#### Dependencies
+*   [#186](https://github.com/DekodeInteraktiv/heisenberg/pull/186) Update dependency autoprefixer to v8.6.1.
+*   [#185](https://github.com/DekodeInteraktiv/heisenberg/pull/185) Update dependency sass-loader to v7.0.3.
+*   [#181](https://github.com/DekodeInteraktiv/heisenberg/pull/181) Update dependency validator to v10.3.0.
+*   [#179](https://github.com/DekodeInteraktiv/heisenberg/pull/179) Update dependency dotenv to v6.
+*   [#177](https://github.com/DekodeInteraktiv/heisenberg/pull/177) Update dependency sass-loader to v7.0.2.
+*   [#170](https://github.com/DekodeInteraktiv/heisenberg/pull/170) Update dependency sockjs-client to v1.1.5.
+*   [#176](https://github.com/DekodeInteraktiv/heisenberg/pull/176) Update dependency eslint-plugin-flowtype to v2.49.3.
+
 ## heisenberg-dev-utils@0.0.6 (2018-05-29)
 
 #### Bug Fix
