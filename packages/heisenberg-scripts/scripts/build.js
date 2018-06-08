@@ -103,6 +103,7 @@ async function build() {
 	// WebpackConfigDefaults
 	const options = Object.assign( {
 		commonsChunkPlugin: true,
+		commonsChunkPluginOptions: {},
 		dest: 'dist',
 		hashFilenames: true,
 		manifest: true,
