@@ -9117,9 +9117,9 @@ stylelint-order@0.8.1:
     postcss "^6.0.14"
     postcss-sorting "^3.1.0"
 
-stylelint-scss@3.1.1:
-  version "3.1.1"
-  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.1.1.tgz#caa79b8956e3ac6765ecb676a441e4ca1bb0e427"
+stylelint-scss@3.1.2:
+  version "3.1.2"
+  resolved "https://registry.yarnpkg.com/stylelint-scss/-/stylelint-scss-3.1.2.tgz#3257c0600d197fe7642f3698944b47c91567f379"
   dependencies:
     lodash "^4.17.10"
     postcss-media-query-parser "^0.2.3"
