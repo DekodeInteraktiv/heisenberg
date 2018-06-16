@@ -34,7 +34,7 @@
   "dependencies": {
     "stylelint-config-recommended": "2.1.0",
     "stylelint-order": "0.8.1",
-    "stylelint-scss": "3.1.2"
+    "stylelint-scss": "3.1.3"
   },
   "devDependencies": {
     "jest": "23.1.0",
