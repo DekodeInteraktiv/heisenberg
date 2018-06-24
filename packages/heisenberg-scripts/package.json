@@ -31,7 +31,7 @@
     "@babel/preset-flow": "7.0.0-beta.51",
     "autoprefixer": "8.6.3",
     "babel-eslint": "8.2.3",
-    "babel-loader": "8.0.0-beta.3",
+    "babel-loader": "8.0.0-beta.4",
     "browser-sync": "2.23.7",
     "cache-loader": "1.2.2",
     "case-sensitive-paths-webpack-plugin": "2.1.2",
