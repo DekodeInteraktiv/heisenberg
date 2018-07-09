@@ -43,7 +43,7 @@
     "dotenv": "6.0.0",
     "dotenv-expand": "4.2.0",
     "each-async": "1.1.1",
-    "eslint": "5.0.1",
+    "eslint": "5.1.0",
     "eslint-loader": "2.0.0",
     "eslint-plugin-flowtype": "2.49.3",
     "eslint-plugin-import": "2.13.0",
