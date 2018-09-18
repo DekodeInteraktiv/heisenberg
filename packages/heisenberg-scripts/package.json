@@ -29,7 +29,7 @@
     "@babel/plugin-proposal-object-rest-spread": "7.0.0-beta.53",
     "@babel/preset-env": "7.0.0-beta.53",
     "@babel/preset-flow": "7.0.0-beta.53",
-    "autoprefixer": "8.6.5",
+    "autoprefixer": "9.1.5",
     "babel-eslint": "8.2.6",
     "babel-loader": "8.0.0-beta.4",
     "browser-sync": "2.23.7",
