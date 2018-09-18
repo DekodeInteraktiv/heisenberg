@@ -66,7 +66,7 @@ function printFileSizesAfterBuild( webpackStats, previousSizeMap, dest ) {
 
 	const longestChunkLabelLength = Math.max.apply(
 		null,
-		assets.map( asset => stripAnsi( asset.chunkNames[0] ).length )
+		assets.map( asset => asset.chunkNames[0] ? stripAnsi( asset.chunkNames[0] ).length : 0 )
 	);
 
 	const sortedAssets = _.orderBy( assets, [ asset => asset.folder + path.sep + asset.name.toLowerCase() ], [ 'asc' ] );
@@ -88,7 +88,7 @@ function printFileSizesAfterBuild( webpackStats, previousSizeMap, dest ) {
 			prevFiletype = asset.folder;
 		}
 
-		let chunkLabel = asset.chunkNames[0];
+		let chunkLabel = asset.chunkNames[0] || '';
 		const chunkLength = stripAnsi( chunkLabel ).length;
 
 		if ( chunkLength < longestChunkLabelLength ) {
