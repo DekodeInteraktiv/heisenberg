@@ -54,7 +54,7 @@
     "gzip-size": "5.0.0",
     "lodash": "4.17.10",
     "node-sass": "4.9.2",
-    "postcss-flexbugs-fixes": "3.3.1",
+    "postcss-flexbugs-fixes": "4.1.0",
     "postcss-loader": "2.1.6",
     "react-dev-utils": "5.0.1",
     "recursive-readdir": "2.2.2",
