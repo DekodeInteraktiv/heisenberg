@@ -207,6 +207,7 @@ module.exports = ( options ) => {
 			config.plugins.push(
 				new UnminifiedWebpackPlugin( {
 					postfix: 'unminified',
+					exclude: /\.(scss|css)$/,
 				} )
 			);
 		}
