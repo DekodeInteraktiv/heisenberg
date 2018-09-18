@@ -10,6 +10,7 @@ const fs = require( 'fs' );
 const ManifestPlugin = require( 'webpack-manifest-plugin' );
 const StyleLintPlugin = require( 'stylelint-webpack-plugin' );
 const UglifyJsPlugin = require( 'uglifyjs-webpack-plugin' );
+const UnminifiedWebpackPlugin = require( 'unminified-webpack-plugin' );
 const webpack = require( 'webpack' );
 
 /**
@@ -29,6 +30,7 @@ const env = getClientEnvironment();
 const argv = process.argv.slice( 2 );
 const cacheBusting = 0 > argv.indexOf( '--no-filename-hashes' );
 const watchFiles = -1 !== argv.indexOf( '--watch' );
+const createUnminifed = -1 !== argv.indexOf( '--create-unminified' );
 
 // Assert this just to be safe.
 if ( watchFiles && '"development"' !== env['process.env'].NODE_ENV ) {
@@ -200,6 +202,15 @@ module.exports = ( options ) => {
 				},
 			})
 		);
+
+		if ( createUnminifed ) {
+			config.plugins.push(
+				new UnminifiedWebpackPlugin( {
+					postfix: 'unminified',
+					exclude: /\.(scss|css)$/,
+				} )
+			);
+		}
 	}
 
 	/**
