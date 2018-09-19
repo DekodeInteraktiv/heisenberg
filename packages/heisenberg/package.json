@@ -1,0 +1,35 @@
+{
+  "name": "@dekode/heisenberg",
+  "version": "0.0.0",
+  "description": "A modern build setup",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/DekodeInteraktiv/heisenberg/tree/master/packages/heisenberg-scripts/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DekodeInteraktiv/heisenberg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DekodeInteraktiv/heisenberg/issues"
+  },
+  "engines": {
+    "node": ">=8"
+  },
+  "bin": {
+    "heisenberg-scripts": "./bin/heisenberg-scripts.js"
+  },
+  "files": [
+    "bin",
+    "config",
+    "scripts"
+  ],
+  "dependencies": {
+    "cosmiconfig": "4.0.0",
+    "cross-spawn": "6.0.5",
+    "deepmerge": "2.1.1",
+    "fs-extra": "7.0.0",
+    "glob": "7.1.2",
+    "webpack": "4.16.5",
+    "webpack-cli": "3.1.0"
+  },
+  "devDependencies": {}
+}

@@ -6,13 +6,8 @@ language: node_js
 cache:
   directories:
   - node_modules
-  - packages/heisenberg-scripts/node_modules
-  - vendor
 
 install: true
-
-before_script:
-  - phpenv local 7.1
 
 script:
   - tasks/e2e.sh
@@ -21,6 +16,7 @@ matrix:
   include:
     - node_js: 8
     - node_js: 9
+    - node_js: 10
 
 notifications:
   email: false

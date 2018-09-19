@@ -1,15 +1,2 @@
-.cache-loader
-.DS_Store
-.eslintcache
-.idea
-.vscode
-lerna-debug.log
+/coverage
 node_modules
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-/.changelog
-/.env.local
-/dist
-/packages/heisenberg-scripts/fixtures/kitchensink/dist
-/vendor

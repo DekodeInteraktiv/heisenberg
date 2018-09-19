@@ -1,27 +1,35 @@
 {
   "name": "eslint-plugin-heisenberg",
-  "version": "0.1.6",
+  "version": "0.0.0",
   "description": "ESLint configuration used by Heisenberg",
-  "repository": "DekodeInteraktiv/heisenberg",
   "license": "GPL-3.0",
-  "bugs": "https://github.com/DekodeInteraktiv/heisenberg/issues",
-  "scripts": {
-    "find-rules": "eslint-find-rules lib/all.js -u -n"
+  "homepage": "https://github.com/DekodeInteraktiv/heisenberg/tree/master/packages/eslint-plugin-heisenberg/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DekodeInteraktiv/heisenberg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DekodeInteraktiv/heisenberg/issues"
   },
   "engines": {
     "node": ">=8"
   },
+  "scripts": {
+    "find-rules": "eslint-find-rules lib/all.js -u -n -d"
+  },
   "peerDependencies": {
-    "eslint": "^4.18.2 || ^5.0.0"
+    "eslint": "^5.6.0"
   },
   "devDependencies": {
-    "eslint": "5.1.0",
-    "eslint-find-rules": "3.3.1"
+    "eslint": "5.6.0",
+    "eslint-find-rules": "3.3.1",
+    "is-plain-obj": "1.1.0"
   },
   "dependencies": {
     "eslint-plugin-flowtype": "2.50.0",
-    "eslint-plugin-import": "2.13.0",
-    "eslint-plugin-jsdoc": "3.7.1",
+    "eslint-plugin-import": "2.14.0",
+    "eslint-plugin-jsdoc": "3.8.0",
+    "eslint-plugin-node": "7.0.1",
     "merge": "1.2.0"
   }
 }

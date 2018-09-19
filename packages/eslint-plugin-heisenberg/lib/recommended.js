@@ -1,12 +1,13 @@
+/**
+ * External dependencies
+ */
 const merge = require( 'merge' );
 
 module.exports = {
-	plugins: [ 'import', 'flowtype' ],
+	plugins: [ 'import', 'flowtype', 'heisenberg' ],
 
 	env: {
 		es6: true,
-		browser: true,
-		node: true,
 	},
 
 	parserOptions: {
@@ -14,13 +15,12 @@ module.exports = {
 		sourceType: 'module',
 		ecmaFeatures: {
 			generators: true,
-			experimentalObjectRestSpread: true,
 		},
 	},
 
 	rules: merge(
 		require( './rules/best-practices' ),
-		require( './rules/es6' ),
+		require( './rules/esnext' ),
 		require( './rules/possible-errors' ),
 		require( './rules/stylistic-issues' ),
 		require( './rules/variables' )

@@ -2,26 +2,13 @@ image: Visual Studio 2017
 clone_depth: 50
 
 environment:
-  PHP_CHOCO_VERSION: 7.2
-  PHP_CACHE_DIR: C:\tools\php
   matrix:
     - nodejs_version: 8
     - nodejs_version: 9
+    - nodejs_version: 10
 
 cache:
-  - '%PHP_CACHE_DIR% -> appveyor.yml'
-  - node_modules -> yarn.lock
-  - packages\heisenberg-scripts\node_modules -> yarn.lock
-  - packages\eslint-plugin-heisenberg\node_modules -> yarn.lock
-  - packages\stylelint-config-heisenberg\node_modules -> yarn.lock
-  - vendor -> composer.lock
-
-init:
-  - SET PATH=%PHP_CACHE_DIR%;%PATH%
-  - SET COMPOSER_CACHE_DIR=%PHP_CACHE_DIR%
-  - SET COMPOSER_NO_INTERACTION=1
-  - SET PHP=0
-  - SET ANSICON=121x90 (121x90)
+  - node_modules -> package-lock.js
 
 matrix:
   fast_finish: true
@@ -31,15 +18,10 @@ platform:
 
 install:
   - ps: Install-Product node $env:nodejs_version $env:platform
-  - IF EXIST %PHP_CACHE_DIR% (SET PHP=1)
-  - IF %PHP%==0 cinst php -y --version %PHP_CHOCO_VERSION%  --params "/InstallDir:%PHP_CACHE_DIR%"
-  - IF %PHP%==0 cinst composer -y --ia "/DEV=%PHP_CACHE_DIR%"
-  - IF %PHP%==0 (composer --version) ELSE (composer self-update)
 
 build: off
 
 test_script:
   - node --version
   - npm --version
-  - php -v
   - bash tasks/e2e.sh

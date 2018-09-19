@@ -81,8 +81,6 @@ module.exports = {
 	'lines-around-comment': ['warn', {
 		beforeBlockComment: true,
 	}],
-	// Require or disallow newlines around directives
-	'lines-around-directive': 'off',
 	// Require or disallow an empty line between class members
 	'lines-between-class-members': 'off',
 	// Specify the maximum depth that blocks can be nested
@@ -109,12 +107,10 @@ module.exports = {
 	'new-cap': 'off',
 	// Disallow the omission of parentheses when invoking a constructor with no arguments
 	'new-parens': 'warn',
-	// Allow/disallow an empty newline after var statement
-	'newline-after-var': 'off',
-	// Require newline before `return` statement
-	'newline-before-return': 'off',
 	// Enforce newline after each call when chaining the calls
-	'newline-per-chained-call': 'off',
+	'newline-per-chained-call': ['warn', {
+		ignoreChainWithDepth: 3,
+	}],
 	// Disallow use of the Array constructor
 	'no-array-constructor': 'error',
 	// Disallow bitwise operators

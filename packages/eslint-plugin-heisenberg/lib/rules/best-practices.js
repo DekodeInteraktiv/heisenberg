@@ -99,7 +99,7 @@ module.exports = {
 	'no-return-assign': 'error',
 	// Disallow unnecessary return await
 	'no-return-await': 'off',
-	// Disallow use of javascript: urls.,
+	// Disallow use of javascript: urls
 	'no-script-url': 'off',
 	// Disallow assignments where both sides are exactly the same
 	'no-self-assign': 'error',
