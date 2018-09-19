@@ -4,14 +4,14 @@
 	}
 }
 
-if ( ! function_exists( '{{name}}_the_icon' ) ) {
+if ( ! function_exists( '{{name}}_{{theName}}' ) ) {
 	/**
 	 * Prints SVG Icon
 	 *
 	 * @param string $icon Icon id.
 	 * @param array  $args Arguments.
 	 */
-	function {{name}}_the_icon( string $icon, array $args = [] ) {
-		echo {{name}}_get_icon( $icon, $args ); // WPCS: XSS OK.
+	function {{name}}_{{theName}}( string $icon, array $args = [] ) {
+		echo {{name}}_{{getName}}( $icon, $args ); // WPCS: XSS OK.
 	}
 }

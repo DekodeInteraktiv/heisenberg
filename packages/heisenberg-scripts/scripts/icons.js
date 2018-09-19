@@ -30,6 +30,8 @@ function build( customConfig ) {
 		name: 'heisenberg',
 		src: 'src/icons',
 		dest: 'inc/icons.php',
+		getName: 'get_icon',
+		theName: 'the_icon',
 		options: {
 			plugins: [
 				{ removeAttrs: {} },
@@ -71,7 +73,11 @@ function build( customConfig ) {
 		phpFile += fs.readFileSync( path.resolve( __dirname, '../assets/icons/footer.php' ), 'utf8' );
 
 		// Replace with config vars.
-		phpFile = phpFile.replace( /{{package}}/g, config.package ).replace( /{{name}}/g, config.name );
+		phpFile = phpFile
+			.replace( /{{package}}/g, config.package )
+			.replace( /{{name}}/g, config.name )
+			.replace( /{{getName}}/g, config.getName )
+			.replace( /{{theName}}/g, config.theName );
 
 		fs.writeFile( paths.resolveApp( config.dest ), phpFile, err => {
 			if ( err ) {

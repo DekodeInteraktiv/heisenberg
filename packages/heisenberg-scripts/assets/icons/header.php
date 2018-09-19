@@ -10,7 +10,7 @@
 
 declare( strict_types=1 );
 
-if ( ! function_exists( '{{name}}_get_icon' ) ) {
+if ( ! function_exists( '{{name}}_{{getName}}' ) ) {
 	/**
 	 * Get SVG Icon
 	 *
@@ -18,7 +18,7 @@ if ( ! function_exists( '{{name}}_get_icon' ) ) {
 	 * @param  array  $args Arguments.
 	 * @return string <svg /> markup.
 	 */
-	function {{name}}_get_icon( string $icon, array $args = [] ) : string {
+	function {{name}}_{{getName}}( string $icon, array $args = [] ) : string {
 		$defaults = [
 			'classname' => '',
 			'height'    => '',
