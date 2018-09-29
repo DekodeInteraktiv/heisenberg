@@ -10,7 +10,7 @@ cache:
 install: true
 
 script:
-  - tasks/e2e.sh
+  - tasks/e2e-simple.sh
 
 matrix:
   include:

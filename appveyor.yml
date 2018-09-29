@@ -24,4 +24,4 @@ build: off
 test_script:
   - node --version
   - npm --version
-  - bash tasks/e2e.sh
+  - bash tasks/e2e-simple.sh

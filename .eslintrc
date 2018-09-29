@@ -5,7 +5,6 @@
   "extends": [
     "plugin:heisenberg/recommended",
     "plugin:heisenberg/node",
-    "plugin:heisenberg/jsdoc",
     "plugin:jest/recommended"
   ],
   "plugins": [
