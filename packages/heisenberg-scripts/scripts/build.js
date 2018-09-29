@@ -13,9 +13,16 @@ process.on( 'unhandledRejection', err => {
 } );
 
 /**
+ * External dependencies
+ */
+const formatWebpackMessages = require( 'react-dev-utils/formatWebpackMessages' );
+const webpack = require( 'webpack' );
+
+/**
  * Internal dependencies
  */
-const getHeisenbergConfig = require( '../utils/config' );
+const config = require( '../config/webpack.config.prod' );
+const createWebpackConfig = require( '../utils/create-webpack-config' );
 
 /**
  * Build script.
@@ -23,9 +30,40 @@ const getHeisenbergConfig = require( '../utils/config' );
 async function build() {
 	console.log( 'Creating an optimized production build...' );
 
-	const config = await getHeisenbergConfig();
+	const webpackConfig = await createWebpackConfig( config );
+	const compiler = webpack( webpackConfig );
 
-	console.log( config );
+	return new Promise( ( resolve, reject ) => {
+		compiler.run( ( err, stats ) => {
+			if ( err ) {
+				return reject( err );
+			}
+
+			const messages = formatWebpackMessages(
+				stats.toJson( { all: false, warnings: true, errors: true } )
+			);
+
+			if ( messages.errors.length ) {
+				// Only keep the first error. Others are often indicative
+				// of the same problem, but confuse the reader with noise.
+				if ( messages.errors.length > 1 ) {
+					messages.errors.length = 1;
+				}
+
+				return reject( new Error( messages.errors.join( '\n\n' ) ) );
+			}
+
+			console.log( messages );
+
+			resolve( {} );
+		} );
+	} );
 }
 
-build();
+build().catch( error => {
+	if ( error && error.message ) {
+		console.log( error.message );
+	}
+
+	process.exit(1);
+} );

@@ -20,7 +20,9 @@
   "files": [
     "bin",
     "config",
-    "scripts"
+    "scripts",
+    "utils",
+    "webpack-plugins"
   ],
   "dependencies": {
     "cosmiconfig": "4.0.0",
@@ -28,8 +30,10 @@
     "deepmerge": "2.1.1",
     "fs-extra": "7.0.0",
     "glob": "7.1.2",
-    "webpack": "4.16.5",
-    "webpack-cli": "3.1.0"
+    "react-dev-utils": "6.0.1",
+    "resolve": "1.8.1",
+    "webpack": "4.20.2",
+    "webpack-cli": "3.1.1"
   },
   "devDependencies": {}
 }
