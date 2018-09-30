@@ -1,0 +1,9 @@
+.heisenberg-plugin-scss {
+	background-color: #fff;
+	color: #000;
+
+	> * {
+		align-items: center;
+		display: flex;
+	}
+}

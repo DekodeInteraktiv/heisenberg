@@ -1,9 +1,9 @@
 {
-  "name": "heisenberg-plugin-scss",
+  "name": "heisenberg-plugin-unminified",
   "version": "0.0.0",
-  "description": "Make Heisenberg compile SCSS files",
+  "description": "Make Heisenberg generete a unminified version of JS files",
   "license": "GPL-3.0",
-  "homepage": "https://github.com/DekodeInteraktiv/heisenberg/tree/master/packages/heisenberg-plugin-scss/README.md",
+  "homepage": "https://github.com/DekodeInteraktiv/heisenberg/tree/master/packages/heisenberg-plugin-unminified/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/DekodeInteraktiv/heisenberg.git"
@@ -16,8 +16,7 @@
   },
   "main": "index.js",
   "dependencies": {
-    "node-sass": "4.9.3",
-    "sass-loader": "7.1.0"
+    "unminified-webpack-plugin": "2.0.0"
   },
   "devDependencies": {}
 }

@@ -1,1 +1,1 @@
-# SCSS - Heienberg Plugin
+# SCSS

@@ -18,6 +18,7 @@
     "@dekode/babel-preset-default": "file:packages/babel-preset-default",
     "@dekode/browserslist-config": "file:packages/browserslist-config",
     "heisenberg-plugin-scss": "file:packages/heisenberg-plugin-scss",
+    "heisenberg-plugin-unminified": "file:packages/heisenberg-plugin-unminified",
     "heisenberg-scripts": "file:packages/heisenberg-scripts",
     "eslint": "5.6.1",
     "eslint-plugin-heisenberg": "file:packages/eslint-plugin-heisenberg",

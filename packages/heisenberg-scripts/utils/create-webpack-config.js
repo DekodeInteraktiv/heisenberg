@@ -15,8 +15,6 @@ async function createWebpackConfig( config ) {
 		config = plugin( config, process.env.NODE_ENV );
 	} );
 
-	console.log( config );
-
 	return config;
 }
 

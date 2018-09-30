@@ -34,6 +34,12 @@ function exists {
 	done
 }
 
+function do_not_exists {
+	for f in $*; do
+		test ! -e "$f"
+	done
+}
+
 # Exit the script with a helpful error message when any error is encountered
 trap 'set +x; handle_error $LINENO $BASH_COMMAND' ERR
 
@@ -60,6 +66,13 @@ CI=true npm run test
 
 # Test local build command
 npm run build
+
+# Check for expected output
+exists dist/core.js
+exists dist/core.min.js
+exists dist/core.min.css
+exists dist/scss.min.css
+do_not_exists dist/scss.min.js
 
 # Cleanup
 cleanup
