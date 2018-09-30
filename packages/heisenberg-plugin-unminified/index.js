@@ -2,14 +2,15 @@
  * External dependencies
  */
 const UnminifiedWebpackPlugin = require( 'unminified-webpack-plugin' );
+const { injectPlugin } = require( 'heisenberg-scripts' );
 
 module.exports = ( config, env ) => {
 	if ( env === 'production' ) {
-		config.plugins.push(
-			new UnminifiedWebpackPlugin( {
-				exclude: /\.(scss|css)$/,
-			} )
-		);
+		const unminifiedPlugin = new UnminifiedWebpackPlugin( {
+			exclude: /\.(scss|css)$/,
+		} );
+
+		injectPlugin( config, unminifiedPlugin );
 	}
 
 	return config;

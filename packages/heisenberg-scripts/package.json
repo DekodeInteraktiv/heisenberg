@@ -17,7 +17,9 @@
   "bin": {
     "heisenberg-scripts": "./bin/heisenberg-scripts.js"
   },
+  "main": "index.js",
   "files": [
+    "index.js",
     "bin",
     "config",
     "scripts",
