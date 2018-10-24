@@ -114,7 +114,7 @@ module.exports = ( options ) => {
 					],
 					loader: 'file-loader',
 					options: {
-						name: 'static/[name].[hash:8].[ext]',
+						name: options.hashFilenames ? 'static/[name].[hash:8].[ext]' : 'static/[name].[ext]',
 					},
 				},
 				// Process JS with Babel.
