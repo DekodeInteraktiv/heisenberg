@@ -15,6 +15,7 @@ process.on( 'unhandledRejection', err => {
 /**
  * External dependencies
  */
+const chalk = require( 'chalk' );
 const formatWebpackMessages = require( 'react-dev-utils/formatWebpackMessages' );
 const webpack = require( 'webpack' );
 
@@ -52,6 +53,14 @@ async function build() {
 				}
 
 				return reject( new Error( messages.errors.join( '\n\n' ) ) );
+			}
+
+			if ( process.env.CI && ( typeof process.env.CI !== 'string' || process.env.CI.toLowerCase() !== 'false') && messages.warnings.length ) {
+				console.log(
+					chalk.yellow( '\nTreating warnings as errors because process.env.CI = true.\nMost CI servers set it automatically.\n' )
+				);
+
+				return reject( new Error( messages.warnings.join( '\n\n' ) ) );
 			}
 
 			console.log( messages );
