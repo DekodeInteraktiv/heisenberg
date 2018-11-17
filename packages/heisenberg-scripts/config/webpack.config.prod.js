@@ -1,8 +1,10 @@
 /**
  * External dependencies
  */
+const autoprefixer = require( 'autoprefixer' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
+const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
 
 module.exports = {
 	mode: 'production',
@@ -17,12 +19,27 @@ module.exports = {
 				{
 					test: /\.css$/,
 					use: ExtractTextPlugin.extract({
-						use: [{
-							loader: 'css-loader',
-							options: {
-								sourceMap: false,
+						fallback: 'style-loader',
+						use: [
+							{
+								loader: 'css-loader',
+								options: {
+									importLoaders: 1,
+									sourceMap: false,
+								},
 							},
-						}],
+							{
+								loader: 'postcss-loader',
+								options: {
+									plugins: [
+										postcssFlexbugsFixes,
+										autoprefixer({
+											flexbox: 'no-2009',
+										}),
+									],
+								},
+							},
+						],
 					}),
 				},
 				{
