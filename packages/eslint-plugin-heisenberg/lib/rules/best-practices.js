@@ -74,7 +74,9 @@ module.exports = {
 	// Disallow the use of magic numbers
 	'no-magic-numbers': 'off',
 	// Disallow use of multiple spaces
-	'no-multi-spaces': 'warn',
+	'no-multi-spaces': [ 'error', {
+		ignoreEOLComments: false,
+	} ],
 	// Disallow use of multiline strings
 	'no-multi-str': 'off',
 	// Disallow use of new operator when not part of the assignment or comparison
@@ -118,7 +120,7 @@ module.exports = {
 	// Disallow unnecessary .call() and .apply()
 	'no-useless-call': 'error',
 	// Disallow unnecessary concatenation of literals or template literals
-	'no-useless-concat': 'warn',
+	'no-useless-concat': 'error',
 	// Disallow unnecessary usage of escape character
 	'no-useless-escape': 'error',
 	// Disallow redundant return statements

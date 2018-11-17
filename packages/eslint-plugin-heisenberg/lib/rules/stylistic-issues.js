@@ -20,14 +20,33 @@ module.exports = {
 	// Enforce or disallow capitalization of the first letter of a comment
 	'capitalized-comments': 'off',
 	// Disallow or enforce trailing commas
-	'comma-dangle': ['error', 'always-multiline'],
+	'comma-dangle': [ 'error', {
+		arrays: 'always-multiline',
+		objects: 'always-multiline',
+		imports: 'always-multiline',
+		exports: 'always-multiline',
+	} ],
 	// Enforce spacing before and after comma
 	'comma-spacing': ['warn', {
 		before: false,
 		after: true,
 	}],
 	// Enforce one true comma style
-	'comma-style': ['warn', 'last'],
+	'comma-style': [ 'error', 'last', {
+		exceptions: {
+			ArrayExpression: false,
+			ArrayPattern: false,
+			ArrowFunctionExpression: false,
+			CallExpression: false,
+			FunctionDeclaration: false,
+			FunctionExpression: false,
+			ImportDeclaration: false,
+			ObjectExpression: false,
+			ObjectPattern: false,
+			VariableDeclaration: false,
+			NewExpression: false,
+		},
+	} ],
 	// Require or disallow padding inside computed properties
 	'computed-property-spacing': 'off',
 	// Enforces consistent naming when capturing the current execution context
@@ -61,7 +80,7 @@ module.exports = {
 		SwitchCase: 1,
 	}],
 	// Specify whether double or single quotes should be used in JSX attributes
-	'jsx-quotes': ['warn', 'prefer-double'],
+	'jsx-quotes': [ 'error', 'prefer-double' ],
 	// Enforces spacing between keys and values in object literal properties
 	'key-spacing': ['warn', {
 		beforeColon: false,
@@ -179,7 +198,7 @@ module.exports = {
 	// Require quotes around object literal property names
 	'quote-props': ['warn', 'as-needed'],
 	// Specify whether backticks, double or single quotes should be used
-	quotes: ['error', 'single', 'avoid-escape'],
+	quotes: [ 'error', 'single', { avoidEscape: true } ],
 	// Require JSDoc comments
 	'require-jsdoc': 'off',
 	// Require or disallow use of semicolons instead of ASI

@@ -50,7 +50,7 @@ module.exports = {
 	// require spread operators instead of `.apply()`
 	'prefer-spread': 'off',
 	// require template literals instead of string concatenation
-	'prefer-template': 'off',
+	'prefer-template': 'error',
 	// require generator functions to contain `yield`
 	'require-yield': 'off',
 	// enforce spacing between rest and spread operators and their expressions

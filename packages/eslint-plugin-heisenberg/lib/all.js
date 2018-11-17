@@ -12,6 +12,6 @@ module.exports = {
 		require( './rules/possible-errors' ),
 		require( './rules/stylistic-issues' ),
 		require( './rules/strict-mode' ),
-		require( './rules/variables' )
+		require( './rules/variables' ),
 	),
 };
