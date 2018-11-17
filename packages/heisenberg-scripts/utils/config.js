@@ -11,7 +11,11 @@ const config = require( '../config/heisenberg.config' );
 const { rootDirectory } = require( './paths' );
 
 module.exports = () => new Promise( ( resolve, reject ) => {
-	cosmiconfig( 'heisenberg', { rcExtensions: true } ).load( rootDirectory ).then( customConfig => {
+	const explorer = cosmiconfig( 'heisenberg', {
+		rcExtensions: true,
+	} );
+
+	explorer.search( rootDirectory ).then( customConfig => {
 		if ( customConfig && customConfig.config ) {
 			resolve( merge( config, customConfig.config ) );
 		} else {
