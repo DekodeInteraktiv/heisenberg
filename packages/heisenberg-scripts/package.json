@@ -29,6 +29,8 @@
   "dependencies": {
     "autoprefixer": "9.3.1",
     "babel-loader": "8.0.4",
+    "browserslist": "4.3.4",
+    "chalk": "2.4.1",
     "cosmiconfig": "5.0.7",
     "cross-spawn": "6.0.5",
     "css-loader": "1.0.1",

@@ -21,6 +21,7 @@ const webpack = require( 'webpack' );
 /**
  * Internal dependencies
  */
+const { checkBrowsers } = require( '../utils/check-browserslist' );
 const config = require( '../config/webpack.config.prod' );
 const createWebpackConfig = require( '../utils/create-webpack-config' );
 
@@ -60,9 +61,9 @@ async function build() {
 	} );
 }
 
-build().catch( error => {
-	if ( error && error.message ) {
-		console.log( error.message );
+checkBrowsers().then( build ).catch( err => {
+	if ( err && err.message ) {
+		console.log(err.message);
 	}
 
 	process.exit(1);
