@@ -34,6 +34,7 @@
     "cosmiconfig": "5.0.7",
     "cross-spawn": "6.0.5",
     "css-loader": "1.0.1",
+    "cssnano": "4.1.7",
     "deepmerge": "2.2.1",
     "extract-text-webpack-plugin": "4.0.0-beta.0",
     "file-loader": "2.0.0",

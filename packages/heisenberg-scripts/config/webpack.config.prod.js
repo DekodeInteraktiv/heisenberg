@@ -5,6 +5,7 @@ const autoprefixer = require( 'autoprefixer' );
 const ExtractTextPlugin = require( 'extract-text-webpack-plugin' );
 const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
+const cssnano = require( 'cssnano' );
 
 module.exports = {
 	mode: 'production',
@@ -36,6 +37,7 @@ module.exports = {
 										autoprefixer({
 											flexbox: 'no-2009',
 										}),
+										cssnano(),
 									],
 								},
 							},
