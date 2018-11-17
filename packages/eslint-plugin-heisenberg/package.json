@@ -12,7 +12,7 @@
     "url": "https://github.com/DekodeInteraktiv/heisenberg/issues"
   },
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "scripts": {
     "find-rules": "eslint-find-rules lib/all.js -u -n -d"

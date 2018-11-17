@@ -1,7 +1,7 @@
 {
   "private": true,
   "engines": {
-    "node": ">=8"
+    "node": ">=10"
   },
   "scripts": {
     "e2e": "tasks/e2e-simple.sh",
