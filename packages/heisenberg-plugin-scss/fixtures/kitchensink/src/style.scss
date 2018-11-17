@@ -1,6 +1,9 @@
+$color-black: #000;
+$color-white: #fff;
+
 .heisenberg-plugin-scss {
-	background-color: #fff;
-	color: #000;
+	background-color: $color-white;
+	color: $color-black;
 
 	> * {
 		align-items: center;
