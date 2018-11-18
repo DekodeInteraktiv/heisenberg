@@ -18,6 +18,7 @@ process.on( 'unhandledRejection', err => {
 const chalk = require( 'chalk' );
 const FileSizeReporter = require( 'react-dev-utils/FileSizeReporter' );
 const formatWebpackMessages = require( 'react-dev-utils/formatWebpackMessages' );
+const printBuildError = require( 'react-dev-utils/printBuildError' );
 const webpack = require( 'webpack' );
 
 const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
@@ -110,6 +111,10 @@ checkBrowsers()
 			WARN_AFTER_CHUNK_GZIP_SIZE
 		);
 		console.log();
+	}, err => {
+		console.log( chalk.red( 'Failed to compile.\n' ) );
+		printBuildError( err );
+		process.exit( 1 );
 	} )
 	.catch( err => {
 		if ( err && err.message ) {
