@@ -16,20 +16,30 @@ process.on( 'unhandledRejection', err => {
  * External dependencies
  */
 const chalk = require( 'chalk' );
+const FileSizeReporter = require( 'react-dev-utils/FileSizeReporter' );
 const formatWebpackMessages = require( 'react-dev-utils/formatWebpackMessages' );
 const webpack = require( 'webpack' );
+
+const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
+const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
 
 /**
  * Internal dependencies
  */
 const { checkBrowsers } = require( '../utils/check-browserslist' );
+const { resolveRoot } = require( '../utils/paths' );
 const config = require( '../config/webpack.config.prod' );
 const createWebpackConfig = require( '../utils/create-webpack-config' );
+const getHeisenbergConfig = require( '../utils/config' );
+
+// These sizes are pretty large. We'll warn for bundles exceeding them.
+const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
+const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 
 /**
  * Build script.
  */
-async function build() {
+async function build( previousFileSizes ) {
 	console.log( 'Creating an optimized production build...' );
 
 	const webpackConfig = await createWebpackConfig( config );
@@ -63,17 +73,56 @@ async function build() {
 				return reject( new Error( messages.warnings.join( '\n\n' ) ) );
 			}
 
-			console.log( messages );
-
-			resolve( {} );
+			resolve( {
+				previousFileSizes,
+				stats,
+				warnings: messages.warnings,
+			} );
 		} );
 	} );
 }
 
-checkBrowsers().then( build ).catch( err => {
-	if ( err && err.message ) {
-		console.log(err.message);
-	}
+checkBrowsers()
+	.then( getHeisenbergConfig )
+	.then( ( { dest } ) => {
+		// First, read the current file sizes in build directory.
+		// This lets us display how much they changed later.
+		return measureFileSizesBeforeBuild( resolveRoot( dest ) );
+	} )
+	.then( ( previousFileSizes ) => {
+		return build( previousFileSizes );
+	} )
+	.then( ( { stats, warnings, previousFileSizes } ) => {
+		if ( warnings.length ) {
+			console.log( chalk.yellow( 'Compiled with warnings.\n' ) );
+			console.log( warnings.join( '\n\n' ) );
+			console.log(
+				'\nSearch for the ' +
+				chalk.underline( chalk.yellow( 'keywords' ) ) +
+				' to learn more about each warning.'
+			);
+			console.log(
+				'To ignore, add ' +
+				chalk.cyan( '// eslint-disable-next-line' ) +
+				' to the line before.\n'
+			);
+		} else {
+			console.log( chalk.green( 'Compiled successfully.\n' ) );
+		}
 
-	process.exit(1);
-} );
+		printFileSizesAfterBuild(
+			stats,
+			previousFileSizes,
+			previousFileSizes.root,
+			WARN_AFTER_BUNDLE_GZIP_SIZE,
+			WARN_AFTER_CHUNK_GZIP_SIZE
+		);
+		console.log();
+	} )
+	.catch( err => {
+		if ( err && err.message ) {
+			console.log(err.message);
+		}
+
+		process.exit(1);
+	} );
