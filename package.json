@@ -15,11 +15,10 @@
   },
   "devDependencies": {
     "@babel/core": "7.1.6",
-    "@dekode/babel-preset-default": "file:packages/babel-preset-default",
-    "@dekode/browserslist-config": "file:packages/browserslist-config",
     "eslint": "5.9.0",
     "eslint-plugin-heisenberg": "file:packages/eslint-plugin-heisenberg",
     "eslint-plugin-jest": "22.0.0",
+    "browserslist-config-heisenberg": "file:packages/browserslist-config",
     "heisenberg-plugin-scss": "file:packages/heisenberg-plugin-scss",
     "heisenberg-plugin-unminified": "file:packages/heisenberg-plugin-unminified",
     "heisenberg-scripts": "file:packages/heisenberg-scripts",

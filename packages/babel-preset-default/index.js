@@ -5,9 +5,6 @@ module.exports = function( api ) {
 		presets: [
 			! isTestEnv && [ '@babel/preset-env', {
 				modules: false,
-				targets: {
-					browsers: [ 'extends @dekode/browserslist-config' ],
-				},
 				useBuiltIns: 'usage',
 			} ],
 			isTestEnv && [ '@babel/preset-env', {

@@ -5,18 +5,18 @@ Default [Babel](https://babeljs.io/) preset for Dekode development.
 #### Via .babelrc (Recommended)
 ```json
 {
-  "presets": [ "@dekode/babel-preset-default" ]
+  "presets": [ "heisenberg" ]
 }
 ```
 
 #### Via CLI
 ```bash
-babel script.js --presets @dekode/babel-preset-default
+babel script.js --presets babel-preset-heisenberg
 ```
 
 #### Via Node API
 ```js
 require( '@babel/core' ).transform( 'code', {
-  presets: [ '@dekode/babel-preset-default' ]
+  presets: [ 'heisenberg' ]
 } );
 ```

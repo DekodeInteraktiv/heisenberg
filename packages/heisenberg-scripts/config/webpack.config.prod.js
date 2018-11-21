@@ -7,6 +7,11 @@ const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );
 const postcssFlexbugsFixes = require( 'postcss-flexbugs-fixes' );
 const cssnano = require( 'cssnano' );
 
+/**
+ * Internal dependencies
+ */
+const { getBabelOptions } = require( '../utils/get-babel-options' );
+
 module.exports = {
 	mode: 'production',
 
@@ -17,6 +22,14 @@ module.exports = {
 	module: {
 		rules: [{
 			oneOf: [
+				{
+					test: /\.m?js$/,
+					exclude: /(node_modules|bower_components)/,
+					use: {
+						loader: 'babel-loader',
+						options: getBabelOptions(),
+					},
+				},
 				{
 					test: /\.css$/,
 					use: ExtractTextPlugin.extract({

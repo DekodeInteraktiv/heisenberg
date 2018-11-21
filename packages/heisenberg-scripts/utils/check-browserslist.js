@@ -23,4 +23,6 @@ function checkBrowsers() {
 	);
 }
 
-module.exports = { checkBrowsers };
+module.exports = {
+	checkBrowsers,
+};
