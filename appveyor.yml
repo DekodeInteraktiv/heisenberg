@@ -7,7 +7,7 @@ environment:
     - nodejs_version: 11
 
 cache:
-  - node_modules -> package-lock.js
+  - node_modules -> package-lock.json
 
 matrix:
   fast_finish: true
