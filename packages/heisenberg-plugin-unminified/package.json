@@ -1,6 +1,6 @@
 {
   "name": "heisenberg-plugin-unminified",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Make Heisenberg generete a unminified version of JS files",
   "license": "GPL-3.0",
   "homepage": "https://github.com/DekodeInteraktiv/heisenberg/tree/master/packages/heisenberg-plugin-unminified/README.md",

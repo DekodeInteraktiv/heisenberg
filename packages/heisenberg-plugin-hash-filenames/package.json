@@ -1,6 +1,6 @@
 {
   "name": "heisenberg-plugin-hash-filenames",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Hash production filenames",
   "license": "GPL-3.0",
   "homepage": "https://github.com/DekodeInteraktiv/heisenberg/tree/master/packages/heisenberg-plugin-hash-filenames/README.md",
