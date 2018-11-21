@@ -1,0 +1,22 @@
+{
+  "name": "heisenberg-plugin-hash-filenames",
+  "version": "0.0.0",
+  "description": "Hash production filenames",
+  "license": "GPL-3.0",
+  "homepage": "https://github.com/DekodeInteraktiv/heisenberg/tree/master/packages/heisenberg-plugin-hash-filenames/README.md",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/DekodeInteraktiv/heisenberg.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DekodeInteraktiv/heisenberg/issues"
+  },
+  "engines": {
+    "node": ">=10"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "webpack-manifest-plugin": "2.0.4"
+  },
+  "devDependencies": {}
+}

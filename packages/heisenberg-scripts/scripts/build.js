@@ -32,10 +32,17 @@ const { resolveRoot } = require( '../utils/paths' );
 const config = require( '../config/webpack.config.prod' );
 const createWebpackConfig = require( '../utils/create-webpack-config' );
 const getHeisenbergConfig = require( '../utils/config' );
+const { getFilenames } = require( '../utils/get-filenames' );
 
 // These sizes are pretty large. We'll warn for bundles exceeding them.
 const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
 const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
+
+const FILENAMES = {
+	css: '[name].min.css',
+	media: 'static/[name].[ext]',
+	output: '[name].min.js',
+};
 
 /**
  * Build script.
@@ -43,7 +50,8 @@ const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
 async function build( previousFileSizes ) {
 	console.log( 'Creating an optimized production build...' );
 
-	const webpackConfig = await createWebpackConfig( config );
+	const filenames = await getFilenames( FILENAMES );
+	const webpackConfig = await createWebpackConfig( config( filenames ) );
 	const compiler = webpack( webpackConfig );
 
 	return new Promise( ( resolve, reject ) => {

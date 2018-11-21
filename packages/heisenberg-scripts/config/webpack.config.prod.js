@@ -12,11 +12,11 @@ const cssnano = require( 'cssnano' );
  */
 const { getBabelOptions } = require( '../utils/get-babel-options' );
 
-module.exports = {
+module.exports = ( filenames ) => ( {
 	mode: 'production',
 
 	output: {
-		filename: '[name].min.js',
+		filename: filenames.output,
 	},
 
 	module: {
@@ -61,7 +61,7 @@ module.exports = {
 					loader: 'file-loader',
 					exclude: [ /\.(js|js)$/, /\.html$/, /\.json$/ ],
 					options: {
-						name: 'static/media/[name].[hash:8].[ext]',
+						name: filenames.media,
 					},
 				},
 			],
@@ -70,6 +70,6 @@ module.exports = {
 
 	plugins: [
 		new FixStyleOnlyEntriesPlugin( { silent: true } ),
-		new ExtractTextPlugin( '[name].min.css' ),
+		new ExtractTextPlugin( filenames.css ),
 	],
-};
+} );
