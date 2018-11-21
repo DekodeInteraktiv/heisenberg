@@ -7,7 +7,6 @@ module.exports = {
 		scss: './packages/heisenberg-plugin-scss/fixtures/kitchensink/src/style.scss',
 	},
 	plugins: [
-		'hash-filenames',
 		'scss',
 		'unminified',
 	],
