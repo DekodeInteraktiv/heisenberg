@@ -15,24 +15,21 @@ process.on( 'unhandledRejection', err => {
 /**
  * External dependencies
  */
+const { measureFileSizesBeforeBuild, printFileSizesAfterBuild } = require( 'react-dev-utils/FileSizeReporter' );
 const chalk = require( 'chalk' );
-const FileSizeReporter = require( 'react-dev-utils/FileSizeReporter' );
 const formatWebpackMessages = require( 'react-dev-utils/formatWebpackMessages' );
 const printBuildError = require( 'react-dev-utils/printBuildError' );
 const webpack = require( 'webpack' );
-
-const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
-const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
 
 /**
  * Internal dependencies
  */
 const { checkBrowsers } = require( '../utils/check-browserslist' );
+const { getFilenames } = require( '../utils/get-filenames' );
 const { resolveRoot } = require( '../utils/paths' );
 const config = require( '../config/webpack.config.prod' );
 const createWebpackConfig = require( '../utils/create-webpack-config' );
 const getHeisenbergConfig = require( '../utils/config' );
-const { getFilenames } = require( '../utils/get-filenames' );
 
 // These sizes are pretty large. We'll warn for bundles exceeding them.
 const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
