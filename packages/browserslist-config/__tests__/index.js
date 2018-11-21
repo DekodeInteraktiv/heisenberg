@@ -17,6 +17,6 @@ it( 'should export an array', () => {
 } );
 
 it( 'should not contain invalid queries', () => {
-	const result = browserslist( [ 'extends @dekode/browserslist-config-default' ] );
+	const result = browserslist( [ 'extends browserslist-config-heisenberg' ] );
 	expect( result ).toBeTruthy();
 } );
