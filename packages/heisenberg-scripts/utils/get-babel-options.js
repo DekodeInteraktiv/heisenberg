@@ -16,7 +16,7 @@ function getBabelOptions() {
 	}
 
 	return {
-		presets: [ 'babel-preset-heisenberg' ],
+		presets: [ 'heisenberg' ],
 	};
 }
 

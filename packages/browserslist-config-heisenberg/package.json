@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "description": "Shareable config for Browserslist.",
   "license": "GPL-3.0",
-  "homepage": "https://github.com/DekodeInteraktiv/heisenberg/tree/master/packages/browserslist-config/README.md",
+  "homepage": "https://github.com/DekodeInteraktiv/heisenberg/tree/master/packages/browserslist-config-heisenberg/README.md",
   "repository": {
     "type": "git",
     "url": "https://github.com/DekodeInteraktiv/heisenberg.git"
