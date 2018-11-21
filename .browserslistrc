@@ -1,1 +1,1 @@
-extends browserslist-config-heisenberg
+extends @dekode/browserslist-config-default

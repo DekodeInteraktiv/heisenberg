@@ -6,7 +6,7 @@ Add this to your `package.json` file:
 
 ```json
 "browserslist": [
-	"extends browserslist-config-heisenberg"
+	"extends @dekode/browserslist-config-default"
 ]
 ```
 

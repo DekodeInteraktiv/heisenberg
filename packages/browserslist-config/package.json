@@ -1,5 +1,5 @@
 {
-  "name": "browserslist-config-heisenberg",
+  "name": "@dekode/browserslist-config-default",
   "version": "0.0.0",
   "description": "Shareable config for Browserslist.",
   "license": "GPL-3.0",
