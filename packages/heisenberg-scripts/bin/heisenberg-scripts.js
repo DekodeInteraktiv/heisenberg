@@ -17,12 +17,13 @@ const spawn = require( 'cross-spawn' );
  * Arguments
  */
 const args = process.argv.slice( 2 );
-const scriptIndex = args.findIndex( x => x === 'build' );
+const scriptIndex = args.findIndex( x => x === 'build' || x === 'start' );
 const script = scriptIndex === -1 ? args[0] : args[ scriptIndex ];
 const nodeArgs = scriptIndex > 0 ? args.slice( 0, scriptIndex ) : [];
 
 switch ( script ) {
-	case 'build': {
+	case 'build':
+	case 'start': {
 		const result = spawn.sync(
 			'node',
 			nodeArgs
