@@ -1,4 +1,5 @@
 module.exports = {
+	proxy: 'http://twentynineteen.test',
 	entry: {
 		core: [
 			'./packages/heisenberg-scripts/fixtures/kitchensink/src/index.js',
