@@ -14,7 +14,7 @@ const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
 const { checkBrowsers } = require( '../utils/check-browserslist' );
 const getHeisenbergConfig = require( '../utils/config' );
 const createWebpackConfig = require( '../utils/create-webpack-config' );
-const config = require( '../config/webpack.config.prod' );
+const config = require( '../config/webpack.config.dev' );
 
 const DEFAULT_PORT = parseInt( process.env.PORT, 10 ) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
@@ -43,8 +43,6 @@ checkBrowsers()
 		}
 
 		const webpackConfig = await createWebpackConfig( config( FILENAMES ) );
-		webpackConfig.watch = true;
-		webpackConfig.devtool = 'eval';
 		webpackConfig.plugins.push( new BrowserSyncPlugin( {
 			host: HOST,
 			port,

@@ -52,7 +52,8 @@
     "style-loader": "0.23.1",
     "webpack": "4.25.1",
     "webpack-cli": "3.1.2",
-    "webpack-fix-style-only-entries": "0.0.5"
+    "webpack-fix-style-only-entries": "0.0.5",
+    "webpack-merge": "4.1.4"
   },
   "devDependencies": {}
 }

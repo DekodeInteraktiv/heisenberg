@@ -12,6 +12,8 @@ module.exports = ( filenames ) => {
 	const config = sharedConfig( filenames );
 
 	return merge( config, {
-		mode: 'production',
+		mode: 'development',
+		devtool: 'eval',
+		watch: true,
 	} );
 };
