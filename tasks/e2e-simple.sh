@@ -76,7 +76,6 @@ exists dist/core.min.js
 exists dist/core.min.css
 exists dist/scss.min.css
 exists dist/icons.php
-do_not_exists dist/scss.min.js
 
 # Cleanup
 cleanup
