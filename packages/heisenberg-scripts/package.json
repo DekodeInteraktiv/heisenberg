@@ -27,7 +27,7 @@
     "webpack-plugins"
   ],
   "dependencies": {
-    "autoprefixer": "9.3.1",
+    "autoprefixer": "9.4.2",
     "babel-loader": "8.0.4",
     "babel-preset-heisenberg": "file:../babel-preset-heisenberg",
     "browserslist": "4.3.5",
