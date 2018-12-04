@@ -25,7 +25,7 @@ const webpack = require( 'webpack' );
  * Internal dependencies
  */
 const { checkBrowsers } = require( '../utils/check-browserslist' );
-const { getFilenames } = require( '../utils/get-filenames' );
+const { getFilenames, FILENAMES } = require( '../utils/get-filenames' );
 const { resolveRoot } = require( '../utils/paths' );
 const config = require( '../config/webpack.config.prod' );
 const createWebpackConfig = require( '../utils/create-webpack-config' );
@@ -34,12 +34,6 @@ const getHeisenbergConfig = require( '../utils/config' );
 // These sizes are pretty large. We'll warn for bundles exceeding them.
 const WARN_AFTER_BUNDLE_GZIP_SIZE = 512 * 1024;
 const WARN_AFTER_CHUNK_GZIP_SIZE = 1024 * 1024;
-
-const FILENAMES = {
-	css: '[name].min.css',
-	media: 'static/[name].[ext]',
-	output: '[name].min.js',
-};
 
 /**
  * Build script.

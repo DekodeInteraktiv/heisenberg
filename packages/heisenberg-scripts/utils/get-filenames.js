@@ -5,6 +5,12 @@ const { rootDirectory } = require('./paths' );
 const getHeisenbergConfig = require( './config' );
 const resolvePlugin = require( './resolve-plugin' );
 
+const FILENAMES = {
+	css: '[name].min.css',
+	media: 'static/[name].[ext]',
+	output: '[name].min.js',
+};
+
 async function getFilenames( names ) {
 	const heisenbergConfig = await getHeisenbergConfig();
 
@@ -21,4 +27,5 @@ async function getFilenames( names ) {
 
 module.exports = {
 	getFilenames,
+	FILENAMES,
 };

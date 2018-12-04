@@ -24,6 +24,7 @@ const webpack = require( 'webpack' );
  * Internal dependencies
  */
 const { checkBrowsers } = require( '../utils/check-browserslist' );
+const { FILENAMES } = require( '../utils/get-filenames' );
 const getHeisenbergConfig = require( '../utils/config' );
 const createWebpackConfig = require( '../utils/create-webpack-config' );
 const config = require( '../config/webpack.config.dev' );
@@ -31,12 +32,6 @@ require( '../utils/env' );
 
 const DEFAULT_PORT = parseInt( process.env.PORT, 10 ) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
-
-const FILENAMES = {
-	css: '[name].min.css',
-	media: 'static/[name].[ext]',
-	output: '[name].min.js',
-};
 
 checkBrowsers()
 	.then( () => {
