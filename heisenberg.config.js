@@ -11,4 +11,8 @@ module.exports = {
 		'scss',
 		'unminified',
 	],
+	icons: {
+		src: 'packages/heisenberg-scripts/fixtures/kitchensink/src/icons',
+		dest: 'dist/icons.php',
+	},
 };

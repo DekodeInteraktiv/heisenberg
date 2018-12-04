@@ -67,11 +67,15 @@ CI=true npm run test
 # Test local build command
 npm run build
 
+# Test local icon build command
+npm run icons
+
 # Check for expected output
 exists dist/core.js
 exists dist/core.min.js
 exists dist/core.min.css
 exists dist/scss.min.css
+exists dist/icons.php
 do_not_exists dist/scss.min.js
 
 # Cleanup
