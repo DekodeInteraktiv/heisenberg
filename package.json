@@ -17,8 +17,6 @@
     "test:coverage": "jest --coverage"
   },
   "devDependencies": {
-    "@babel/core": "7.2.0",
-    "babel-preset-heisenberg": "file:packages/babel-preset-heisenberg",
     "eslint": "5.9.0",
     "eslint-plugin-heisenberg": "file:packages/eslint-plugin-heisenberg",
     "eslint-plugin-jest": "22.1.2",
