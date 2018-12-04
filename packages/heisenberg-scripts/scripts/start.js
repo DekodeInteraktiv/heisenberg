@@ -27,6 +27,7 @@ const { checkBrowsers } = require( '../utils/check-browserslist' );
 const getHeisenbergConfig = require( '../utils/config' );
 const createWebpackConfig = require( '../utils/create-webpack-config' );
 const config = require( '../config/webpack.config.dev' );
+require( '../utils/env' );
 
 const DEFAULT_PORT = parseInt( process.env.PORT, 10 ) || 3000;
 const HOST = process.env.HOST || '0.0.0.0';
@@ -48,8 +49,9 @@ checkBrowsers()
 		}
 
 		const heisenbergConfig = await getHeisenbergConfig();
+		const proxy = process.env.HEISENBERG_PROXY || heisenbergConfig.proxy;
 
-		if ( ! heisenbergConfig.proxy ) {
+		if ( ! proxy ) {
 			console.log( chalk.red( 'No proxy url defined.\n' ) );
 			process.exit( 1 );
 		}
@@ -58,7 +60,7 @@ checkBrowsers()
 		webpackConfig.plugins.push( new BrowserSyncPlugin( {
 			host: HOST,
 			port,
-			proxy: heisenbergConfig.proxy,
+			proxy,
 			notify: {
 				styles: {
 					backgroundColor: '#000',
