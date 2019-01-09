@@ -19,7 +19,7 @@
   "devDependencies": {
     "eslint": "5.9.0",
     "eslint-plugin-heisenberg": "file:packages/eslint-plugin-heisenberg",
-    "eslint-plugin-jest": "22.1.2",
+    "eslint-plugin-jest": "22.1.3",
     "browserslist-config-heisenberg": "file:packages/browserslist-config-heisenberg",
     "heisenberg-plugin-scss": "file:packages/heisenberg-plugin-scss",
     "heisenberg-plugin-unminified": "file:packages/heisenberg-plugin-unminified",
