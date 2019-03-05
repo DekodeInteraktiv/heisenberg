@@ -58,9 +58,6 @@ npm i
 # Lint md files
 npm run lint:md
 
-# Lint own code
-npm run lint:js
-
 # Run tests with CI flag
 CI=true npm run test
 
